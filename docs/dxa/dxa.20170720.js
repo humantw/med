@@ -57,18 +57,18 @@ var VAR_G3_NOT_SURE_CHECKED=document.getElementById("G3_NOT_SURE").checked;
 
 
 function DXA_REPORTING(){
-    parent.frames['DXA_RESULT_Frame'].document.open(); 
-	parent.frames['DXA_RESULT_Frame'].document.write('<html>');
-	parent.frames['DXA_RESULT_Frame'].document.write('<head><script>');
+    parent.frames['DXA_RESULT'].document.open(); 
+	parent.frames['DXA_RESULT'].document.write('<html>');
+	parent.frames['DXA_RESULT'].document.write('<head><script>');
 	
-	parent.frames['DXA_RESULT_Frame'].document.write('</script></head>');
-	parent.frames['DXA_RESULT_Frame'].document.write('<body bgcolor=bisque>');
+	parent.frames['DXA_RESULT'].document.write('</script></head>');
+	parent.frames['DXA_RESULT'].document.write('<body bgcolor=bisque>');
 
     
-    parent.frames['DXA_RESULT_Frame'].document.write('hello world');
+    parent.frames['DXA_RESULT'].document.write('hello world');
     
     
-    parent.frames['DXA_RESULT_Frame'].document.write('<script src="copytextclipboard.js"></script><script>copytextclipboard.init(function(thetext){console.log("TEXT COPIED:" + thetext);});</script>');
-    parent.frames['DXA_RESULT_Frame'].document.write('</body></html>');
-    parent.frames['DXA_RESULT_Frame'].document.close();
+    parent.frames['DXA_RESULT'].document.write('<script src="copytextclipboard.js"></script><script>copytextclipboard.init(function(thetext){console.log("TEXT COPIED:" + thetext);});</script>');
+    parent.frames['DXA_RESULT'].document.write('</body></html>');
+    parent.frames['DXA_RESULT'].document.close();
     }
