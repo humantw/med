@@ -186,7 +186,7 @@ function DXA_REPORTING(){
 //    console.log('LSP_TSCORE = ' + LSP_DATA[1]);
     
     
-var LSP_DATA = { "BMD" : "Hero2", "TSCORE" : VAR_LSP_TSCORE, "ZSCORE" : "silver" };
+var LSP_DATA = { "BMD" : "Hero2", "TSCORE" : 5, "ZSCORE" : "silver" };
     console.log(LSP_DATA.TSCORE); 
     
     console.log('PREVIOUS_LSP_EXAM_DATE = ' + VAR_PREVIOUS_LSP_EXAM_DATE);
