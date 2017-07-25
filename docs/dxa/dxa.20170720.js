@@ -174,6 +174,16 @@ function DXA_REPORTING(){
     console.log('LSP_TSCORE = ' + VAR_LSP_TSCORE);
     console.log('LSP_ZSCORE = ' + VAR_LSP_ZSCORE);
     
+//        var LSP_DATA = [ "BMD" : 1 , "TSCORE" : 2 , "ZSCORE" : 3 ];
+    
+//    console.log('LSP_TSCORE = ' + LSP_DATA.TSCORE);
+//    console.log('LSP_TSCORE = ' + LSP_DATA[1]);
+    
+    
+var LSP_DATA = { "BMD" : "Hero2", "TSCORE" : 5, "ZSCORE" : "silver" };
+    console.log(LSP_DATA.TSCORE); 
+    
+    
     console.log('PREVIOUS_LSP_EXAM_DATE = ' + VAR_PREVIOUS_LSP_EXAM_DATE);
     console.log('PREVIOUS_LSP_EXAM_LSP_BMD = ' + VAR_PREVIOUS_LSP_EXAM_LSP_BMD);
     console.log('LSP_BMD - PREVIOUS_LSP_BMD = ' + VAR_DELTA_LSP_BMD);
