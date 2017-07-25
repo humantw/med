@@ -14,6 +14,12 @@
     var VAR_VGH_LSC_LH=0.033;
     var VAR_VGH_LSC_RH=0.038;
 
+    var LSP_DATA= [
+        'BMD' : 1 ,
+        'TSCORE' : 2 ,
+        'ZSCORE' : 3
+    ];
+
 /* LSP fracture variants */      
     var VAR_FX_L5=document.getElementById("FX_L5").value;
     var VAR_FX_L4=document.getElementById("FX_L4").value;
@@ -158,6 +164,7 @@ function DXA_REPORTING(){
     
     
     parent.frames['DXA_RESULT'].document.write('hello world<br>');
+    
 
     
     
@@ -176,6 +183,9 @@ function DXA_REPORTING(){
     console.log('LSP_BMD = '   + VAR_LSP_BMD);
     console.log('LSP_TSCORE = ' + VAR_LSP_TSCORE);
     console.log('LSP_ZSCORE = ' + VAR_LSP_ZSCORE);
+    
+    console.log('LSP_TSCORE = ' + LSP_DATA.TSCORE);
+    console.log('LSP_TSCORE = ' + LSP_DATA[1]);
     
     console.log('PREVIOUS_LSP_EXAM_DATE = ' + VAR_PREVIOUS_LSP_EXAM_DATE);
     console.log('PREVIOUS_LSP_EXAM_LSP_BMD = ' + VAR_PREVIOUS_LSP_EXAM_LSP_BMD);
