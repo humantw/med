@@ -1,3 +1,4 @@
+
 function DXA_REPORTING(){
 /* Exam Date variants */
     var VAR_LSP_EXAM_DATE=document.getElementById("LSP_EXAM_DATE").value;
@@ -14,7 +15,13 @@ function DXA_REPORTING(){
     var VAR_VGH_LSC_LSP=0.031;
     var VAR_VGH_LSC_LH=0.033;
     var VAR_VGH_LSC_RH=0.038;
+    var LSP = {
+        "BMD": document.getElementById("LSP_BMD").value, 
+        "TSCORE": document.getElementById("LSP_TSCORE").value, 
+        "ZSCORE": document.getElementById("LSP_ZSCORE").value,
+        };
 
+    
 /* LSP fracture variants */      
     var VAR_FX_L5=document.getElementById("FX_L5").value;
     var VAR_FX_L4=document.getElementById("FX_L4").value;
@@ -184,6 +191,11 @@ function DXA_REPORTING(){
     console.log('VGH_LSC_LH = ' + VAR_VGH_LSC_LH);
     console.log('VGH_LSC_RH = ' + VAR_VGH_LSC_RH);
     
+    console.log('LSP.BMD = ' + LSP.BMD);
+    console.log('LSP.TSCORE = ' + LSP.TSCORE);
+    console.log('LSP.ZSCORE = ' + LSP.ZSCORE);
+    
+
     
 // next mission: add console log of LSP fracture variants    
    
