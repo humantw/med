@@ -1,4 +1,3 @@
-function DXA_REPORTING(){
 /* Exam Date variants */
     var VAR_LSP_EXAM_DATE=document.getElementById("LSP_EXAM_DATE").value;
 
@@ -140,6 +139,10 @@ function DXA_REPORTING(){
       else
           {
           }
+
+
+function DXA_REPORTING(){
+
     
     
     
