@@ -1,25 +1,27 @@
 
 function DXA_REPORTING(){
 /* Exam Date variants */
-    var VAR_LSP_EXAM_DATE=document.getElementById("LSP_EXAM_DATE").value;
+    var VAR_LSP_EXAM_DATE=document.getElementById("LSP_EXAM_DATE");
+    var VAR_PREVIOUS_LSP_EXAM_DATE=document.getElementById("PREVIOUS_LSP_EXAM_DATE");    
     
 /* LSP variants */
-    var VAR_LSP_BMD=document.getElementById("LSP_BMD").value;
-    var VAR_LSP_TSCORE=document.getElementById("LSP_TSCORE").value;
-    var VAR_LSP_ZSCORE=document.getElementById("LSP_ZSCORE").value;
-    var VAR_PREVIOUS_LSP_EXAM_DATE=document.getElementById("PREVIOUS_LSP_EXAM_DATE").value;
-    var VAR_PREVIOUS_LSP_EXAM_LSP_BMD=document.getElementById("PREVIOUS_LSP_EXAM_LSP_BMD").value;
-    var VAR_DELTA_LSP_BMD=(VAR_LSP_BMD-VAR_PREVIOUS_LSP_EXAM_LSP_BMD).toFixed(3);
-    var VAR_ABS_DELTA_LSP_BMD=Math.abs(VAR_DELTA_LSP_BMD).toFixed(3);
-    var VAR_LSP_HOLOGIC_CHECKED=document.getElementById("LSP_HOLOGIC").checked;
+    var VAR_LSP_BMD=document.getElementById("LSP_BMD");
+    var VAR_LSP_TSCORE=document.getElementById("LSP_TSCORE");
+    var VAR_LSP_ZSCORE=document.getElementById("LSP_ZSCORE");
+    
+    var VAR_PREVIOUS_LSP_EXAM_LSP_BMD=document.getElementById("PREVIOUS_LSP_EXAM_LSP_BMD");
+    var VAR_DELTA_LSP_BMD = {
+            "id" : "DELTA_LSP_BMD",
+            "value" : (VAR_LSP_BMD.value-VAR_PREVIOUS_LSP_EXAM_LSP_BMD.value).toFixed(3)
+        };
+    var VAR_ABS_DELTA_LSP_BMD = {
+            "id" : "ABS_DELTA_LSP_BMD",
+            "value" : Math.abs(VAR_DELTA_LSP_BMD.value).toFixed(3)
+        };
+    var VAR_LSP_HOLOGIC=document.getElementById("LSP_HOLOGIC");
     var VAR_VGH_LSC_LSP=0.031;
     var VAR_VGH_LSC_LH=0.033;
     var VAR_VGH_LSC_RH=0.038;
-    var LSP = {
-        "BMD": document.getElementById("LSP_BMD").value, 
-        "TSCORE": document.getElementById("LSP_TSCORE").value, 
-        "ZSCORE": document.getElementById("LSP_ZSCORE").value,
-        };
 
     
 /* LSP fracture variants */      
@@ -163,7 +165,7 @@ function DXA_REPORTING(){
     
     parent.frames['DXA_RESULT'].document.write('hello world<br>');
 
-    
+
     
     
     
@@ -175,25 +177,26 @@ function DXA_REPORTING(){
 /* Console log for variants */    
 
     console.log('Console log: Variants in DXA_REPORTING');
-    console.log('Exam date = '  + VAR_LSP_EXAM_DATE);
     
-    console.log('LSP_BMD = '   + VAR_LSP_BMD);
-    console.log('LSP_TSCORE = ' + VAR_LSP_TSCORE);
-    console.log('LSP_ZSCORE = ' + VAR_LSP_ZSCORE);
+    function log(){
+        for(i=0;i<arguments.length;console.log(arguments[i].id + " = " + arguments[i].value),i++);
+    }
     
-    console.log('PREVIOUS_LSP_EXAM_DATE = ' + VAR_PREVIOUS_LSP_EXAM_DATE);
-    console.log('PREVIOUS_LSP_EXAM_LSP_BMD = ' + VAR_PREVIOUS_LSP_EXAM_LSP_BMD);
-    console.log('LSP_BMD - PREVIOUS_LSP_BMD = ' + VAR_DELTA_LSP_BMD);
-    console.log('abs(DELTA_LSP_BMD) = ' + VAR_ABS_DELTA_LSP_BMD);
+    log(VAR_LSP_EXAM_DATE, VAR_LSP_BMD, VAR_LSP_TSCORE, VAR_LSP_ZSCORE);
     
-    console.log('LSP_HOLOGIC = ' + VAR_LSP_HOLOGIC_CHECKED);
+    log(VAR_PREVIOUS_LSP_EXAM_DATE);
+    
+    log(VAR_PREVIOUS_LSP_EXAM_LSP_BMD, VAR_DELTA_LSP_BMD, VAR_ABS_DELTA_LSP_BMD);
+    
+    console.log('PREVIOUS_LSP_EXAM_DATE = ' + VAR_PREVIOUS_LSP_EXAM_DATE.value);
+    console.log('PREVIOUS_LSP_EXAM_LSP_BMD = ' + VAR_PREVIOUS_LSP_EXAM_LSP_BMD.value);
+    console.log('LSP_BMD - PREVIOUS_LSP_BMD = ' + VAR_DELTA_LSP_BMD.value);
+    console.log('abs(DELTA_LSP_BMD) = ' + VAR_ABS_DELTA_LSP_BMD.value);
+    
+    console.log('LSP_HOLOGIC = ' + VAR_LSP_HOLOGIC.checked);
     console.log('VGH_LSC_LSP = ' + VAR_VGH_LSC_LSP);
     console.log('VGH_LSC_LH = ' + VAR_VGH_LSC_LH);
     console.log('VGH_LSC_RH = ' + VAR_VGH_LSC_RH);
-    
-    console.log('LSP.BMD = ' + LSP.BMD);
-    console.log('LSP.TSCORE = ' + LSP.TSCORE);
-    console.log('LSP.ZSCORE = ' + LSP.ZSCORE);
     
 
     
