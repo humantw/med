@@ -10,292 +10,352 @@
 <body>
 <table border="0">
 <tr>
-    <td valign="top">
-            DXA of Lumbar Spine:
-            <form id= "LSP_EXAM" name="LSP_EXAM">
-                <br>Exam date:<br>
-                <input type="date" id="LSP_EXAM_DATE"><br>
-                <input type="button" value="clean exam date" onclick="this.form.reset();"><br>
-            </form> 
-            <br><br>
+    <td valign="top" width="40%">
+        DXA of Lumbar Spine:
+        <form id= "LSP_EXAM" name="LSP_EXAM">
+        <br>Exam date:<br>
+        <input type="date" id="LSP_EXAM_DATE"><br>
+        <input type="button" value="clean exam date" onclick="this.form.reset();"><br>
+        </form> 
+        <br><br>
 
-            <form id= "DXA_LSP">
-             Lumbar spine:<br><br>
-             <input type="checkbox" id="L1" value="1" checked="checked">L1
-             <input type="checkbox" id="L2" value="1" checked="checked">L2
-             <input type="checkbox" id="L2" value="1" checked="checked">L3
-             <input type="checkbox" id="L2" value="1" checked="checked">L4
+        <form id= "DXA_LSP">
+        Lumbar spine:<br><br>
+        <input type="checkbox" id="L1" value="1" checked="checked">L1
+        <input type="checkbox" id="L2" value="1" checked="checked">L2
+        <input type="checkbox" id="L2" value="1" checked="checked">L3
+        <input type="checkbox" id="L2" value="1" checked="checked">L4
              
-             <br><br>
-             > BMD= <input type="number" id="LSP_BMD"><br>
-             > T-score= <input type="number" id="LSP_TSCORE"><br>
-             > Z-score= <input type="number" id="LSP_ZSCORE"><br><br>
+        <br><br>
+        > BMD= <input type="number" id="LSP_BMD"><br>
+        > T-score= <input type="number" id="LSP_TSCORE"><br>
+        > Z-score= <input type="number" id="LSP_ZSCORE"><br><br>
      
-            <input type="checkbox" id="VFA" value="1">Vertebral Fracture Assessment (VFA): <br><br>
-                <table border="1">
-                <tr>
-                <td rowspan="2">Fx site</td>
-                <td colspan="4">Genant classification</td>
-                <td rowspan="2">FIX</td>
-                <td rowspan="2">VP</td>                
-                </tr>
+        <input type="checkbox" id="VFA" value="1">Vertebral Fracture Assessment (VFA): <br><br>
+        <table border="1">
+            <tr>
+            <td rowspan="2">Fx site</td>
+            <td colspan="4">Genant classification</td>
+            <td rowspan="2">FIX</td>
+            <td rowspan="2">VP</td>                
+            </tr>
                 
-                <tr>
-                <td>X</td>
-                <td>I</td>
-                <td>II</td>
-                <td>III</td>
-                </tr>
+            <tr>
+            <td>X</td>
+            <td>I</td>
+            <td>II</td>
+            <td>III</td>
+            </tr>
                 
-                <tr>
-                <td><input type="checkbox" id="FX_L5" value="> Vertebral fracture at L5">L5</td>
-                <td><input type="radio" name="FX_L5_GENANT" id="FX_L5_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_L5_GENANT" id="FX_L5_GENANT" value=1></td>
-                <td><input type="radio" name="FX_L5_GENANT" id="FX_L5_GENANT" value=2></td>
-                <td><input type="radio" name="FX_L5_GENANT" id="FX_L5_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_L5_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_L5_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_L5" value="> Vertebral fracture at L5">L5</td>
+            <td><input type="radio" name="FX_L5_GENANT" id="FX_L5_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_L5_GENANT" id="FX_L5_GENANT" value=1></td>
+            <td><input type="radio" name="FX_L5_GENANT" id="FX_L5_GENANT" value=2></td>
+            <td><input type="radio" name="FX_L5_GENANT" id="FX_L5_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_L5_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_L5_VP" value=1></td>
+            </tr>
                 
-                <tr>
-                <td><input type="checkbox" id="FX_L4" value="> Vertebral fracture at L4">L4</td>
-                <td><input type="radio" name="FX_L4_GENANT" id="FX_L4_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_L4_GENANT" id="FX_L4_GENANT" value=1></td>
-                <td><input type="radio" name="FX_L4_GENANT" id="FX_L4_GENANT" value=2></td>
-                <td><input type="radio" name="FX_L4_GENANT" id="FX_L4_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_L4_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_L4_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_L4" value="> Vertebral fracture at L4">L4</td>
+            <td><input type="radio" name="FX_L4_GENANT" id="FX_L4_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_L4_GENANT" id="FX_L4_GENANT" value=1></td>
+            <td><input type="radio" name="FX_L4_GENANT" id="FX_L4_GENANT" value=2></td>
+            <td><input type="radio" name="FX_L4_GENANT" id="FX_L4_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_L4_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_L4_VP" value=1></td>
+            </tr>
                 
-                <tr>
-                <td><input type="checkbox" id="FX_L3" value="> Vertebral fracture at L3">L3</td>
-                <td><input type="radio" name="FX_L3_GENANT" id="FX_L3_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_L3_GENANT" id="FX_L3_GENANT" value=1></td>
-                <td><input type="radio" name="FX_L3_GENANT" id="FX_L3_GENANT" value=2></td>
-                <td><input type="radio" name="FX_L3_GENANT" id="FX_L3_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_L3_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_L3_VP" value=1></td>
-                </tr>
-                
-                <tr>
-                <td><input type="checkbox" id="FX_L2" value="> Vertebral fracture at L2">L2</td>
-                <td><input type="radio" name="FX_L2_GENANT" id="FX_L2_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_L2_GENANT" id="FX_L2_GENANT" value=1></td>
-                <td><input type="radio" name="FX_L2_GENANT" id="FX_L2_GENANT" value=2></td>
-                <td><input type="radio" name="FX_L2_GENANT" id="FX_L2_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_L2_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_L2_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_L3" value="> Vertebral fracture at L3">L3</td>
+            <td><input type="radio" name="FX_L3_GENANT" id="FX_L3_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_L3_GENANT" id="FX_L3_GENANT" value=1></td>
+            <td><input type="radio" name="FX_L3_GENANT" id="FX_L3_GENANT" value=2></td>
+            <td><input type="radio" name="FX_L3_GENANT" id="FX_L3_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_L3_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_L3_VP" value=1></td>
+            </tr>
+            
+            <tr>
+            <td><input type="checkbox" id="FX_L2" value="> Vertebral fracture at L2">L2</td>
+            <td><input type="radio" name="FX_L2_GENANT" id="FX_L2_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_L2_GENANT" id="FX_L2_GENANT" value=1></td>
+            <td><input type="radio" name="FX_L2_GENANT" id="FX_L2_GENANT" value=2></td>
+            <td><input type="radio" name="FX_L2_GENANT" id="FX_L2_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_L2_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_L2_VP" value=1></td>
+            </tr>
 
-                <tr>
-                <td><input type="checkbox" id="FX_L1" value="> Vertebral fracture at L1">L1</td>
-                <td><input type="radio" name="FX_L1_GENANT" id="FX_L1_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_L1_GENANT" id="FX_L1_GENANT" value=1></td>
-                <td><input type="radio" name="FX_L1_GENANT" id="FX_L1_GENANT" value=2></td>
-                <td><input type="radio" name="FX_L1_GENANT" id="FX_L1_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_L1_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_L1_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_L1" value="> Vertebral fracture at L1">L1</td>
+            <td><input type="radio" name="FX_L1_GENANT" id="FX_L1_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_L1_GENANT" id="FX_L1_GENANT" value=1></td>
+            <td><input type="radio" name="FX_L1_GENANT" id="FX_L1_GENANT" value=2></td>
+            <td><input type="radio" name="FX_L1_GENANT" id="FX_L1_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_L1_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_L1_VP" value=1></td>
+            </tr>
 
-                <tr>
-                <td><input type="checkbox" id="FX_T12" value="> Vertebral fracture at T12">T12</td>
-                <td><input type="radio" name="FX_T12_GENANT" id="FX_T12_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_T12_GENANT" id="FX_T12_GENANT" value=1></td>
-                <td><input type="radio" name="FX_T12_GENANT" id="FX_T12_GENANT" value=2></td>
-                <td><input type="radio" name="FX_T12_GENANT" id="FX_T12_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_T12_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_T12_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_T12" value="> Vertebral fracture at T12">T12</td>
+            <td><input type="radio" name="FX_T12_GENANT" id="FX_T12_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_T12_GENANT" id="FX_T12_GENANT" value=1></td>
+            <td><input type="radio" name="FX_T12_GENANT" id="FX_T12_GENANT" value=2></td>
+            <td><input type="radio" name="FX_T12_GENANT" id="FX_T12_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_T12_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_T12_VP" value=1></td>
+            </tr>
 
-                <tr>
-                <td><input type="checkbox" id="FX_T11" value="> Vertebral fracture at T11">T11</td>
-                <td><input type="radio" name="FX_T11_GENANT" id="FX_T11_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_T11_GENANT" id="FX_T11_GENANT" value=1></td>
-                <td><input type="radio" name="FX_T11_GENANT" id="FX_T11_GENANT" value=2></td>
-                <td><input type="radio" name="FX_T11_GENANT" id="FX_T11_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_T11_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_T11_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_T11" value="> Vertebral fracture at T11">T11</td>
+            <td><input type="radio" name="FX_T11_GENANT" id="FX_T11_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_T11_GENANT" id="FX_T11_GENANT" value=1></td>
+            <td><input type="radio" name="FX_T11_GENANT" id="FX_T11_GENANT" value=2></td>
+            <td><input type="radio" name="FX_T11_GENANT" id="FX_T11_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_T11_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_T11_VP" value=1></td>
+            </tr>
 
-                <tr>
-                <td><input type="checkbox" id="FX_T10" value="> Vertebral fracture at T10">T10</td>
-                <td><input type="radio" name="FX_T10_GENANT" id="FX_T10_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_T10_GENANT" id="FX_T10_GENANT" value=1></td>
-                <td><input type="radio" name="FX_T10_GENANT" id="FX_T10_GENANT" value=2></td>
-                <td><input type="radio" name="FX_T10_GENANT" id="FX_T10_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_T10_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_T10_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_T10" value="> Vertebral fracture at T10">T10</td>
+            <td><input type="radio" name="FX_T10_GENANT" id="FX_T10_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_T10_GENANT" id="FX_T10_GENANT" value=1></td>
+            <td><input type="radio" name="FX_T10_GENANT" id="FX_T10_GENANT" value=2></td>
+            <td><input type="radio" name="FX_T10_GENANT" id="FX_T10_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_T10_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_T10_VP" value=1></td>
+            </tr>
 
-                <tr>
-                <td><input type="checkbox" id="FX_T9" value="> Vertebral fracture at T9">T9</td>
-                <td><input type="radio" name="FX_T9_GENANT" id="FX_T9_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_T9_GENANT" id="FX_T9_GENANT" value=1></td>
-                <td><input type="radio" name="FX_T9_GENANT" id="FX_T9_GENANT" value=2></td>
-                <td><input type="radio" name="FX_T9_GENANT" id="FX_T9_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_T9_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_T9_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_T9" value="> Vertebral fracture at T9">T9</td>
+            <td><input type="radio" name="FX_T9_GENANT" id="FX_T9_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_T9_GENANT" id="FX_T9_GENANT" value=1></td>
+            <td><input type="radio" name="FX_T9_GENANT" id="FX_T9_GENANT" value=2></td>
+            <td><input type="radio" name="FX_T9_GENANT" id="FX_T9_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_T9_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_T9_VP" value=1></td>
+            </tr>
 
-                <tr>
-                <td><input type="checkbox" id="FX_T8" value="> Vertebral fracture at T8">T8</td>
-                <td><input type="radio" name="FX_T8_GENANT" id="FX_T8_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_T8_GENANT" id="FX_T8_GENANT" value=1></td>
-                <td><input type="radio" name="FX_T8_GENANT" id="FX_T8_GENANT" value=2></td>
-                <td><input type="radio" name="FX_T8_GENANT" id="FX_T8_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_T8_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_T8_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_T8" value="> Vertebral fracture at T8">T8</td>
+            <td><input type="radio" name="FX_T8_GENANT" id="FX_T8_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_T8_GENANT" id="FX_T8_GENANT" value=1></td>
+            <td><input type="radio" name="FX_T8_GENANT" id="FX_T8_GENANT" value=2></td>
+            <td><input type="radio" name="FX_T8_GENANT" id="FX_T8_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_T8_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_T8_VP" value=1></td>
+            </tr>
 
-                <tr>
-                <td><input type="checkbox" id="FX_T7" value="> Vertebral fracture at T7">T7</td>
-                <td><input type="radio" name="FX_T7_GENANT" id="FX_T7_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_T7_GENANT" id="FX_T7_GENANT" value=1></td>
-                <td><input type="radio" name="FX_T7_GENANT" id="FX_T7_GENANT" value=2></td>
-                <td><input type="radio" name="FX_T7_GENANT" id="FX_T7_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_T7_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_T7_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_T7" value="> Vertebral fracture at T7">T7</td>
+            <td><input type="radio" name="FX_T7_GENANT" id="FX_T7_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_T7_GENANT" id="FX_T7_GENANT" value=1></td>
+            <td><input type="radio" name="FX_T7_GENANT" id="FX_T7_GENANT" value=2></td>
+            <td><input type="radio" name="FX_T7_GENANT" id="FX_T7_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_T7_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_T7_VP" value=1></td>
+            </tr>
 
-                <tr>
-                <td><input type="checkbox" id="FX_T6" value="> Vertebral fracture at T6">T6</td>
-                <td><input type="radio" name="FX_T6_GENANT" id="FX_T6_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_T6_GENANT" id="FX_T6_GENANT" value=1></td>
-                <td><input type="radio" name="FX_T6_GENANT" id="FX_T6_GENANT" value=2></td>
-                <td><input type="radio" name="FX_T6_GENANT" id="FX_T6_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_T6_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_T6_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_T6" value="> Vertebral fracture at T6">T6</td>
+            <td><input type="radio" name="FX_T6_GENANT" id="FX_T6_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_T6_GENANT" id="FX_T6_GENANT" value=1></td>
+            <td><input type="radio" name="FX_T6_GENANT" id="FX_T6_GENANT" value=2></td>
+            <td><input type="radio" name="FX_T6_GENANT" id="FX_T6_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_T6_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_T6_VP" value=1></td>
+            </tr>
 
-                <tr>
-                <td><input type="checkbox" id="FX_T5" value="> Vertebral fracture at T5">T5</td>
-                <td><input type="radio" name="FX_T5_GENANT" id="FX_T5_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_T5_GENANT" id="FX_T5_GENANT" value=1></td>
-                <td><input type="radio" name="FX_T5_GENANT" id="FX_T5_GENANT" value=2></td>
-                <td><input type="radio" name="FX_T5_GENANT" id="FX_T5_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_T5_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_T5_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_T5" value="> Vertebral fracture at T5">T5</td>
+            <td><input type="radio" name="FX_T5_GENANT" id="FX_T5_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_T5_GENANT" id="FX_T5_GENANT" value=1></td>
+            <td><input type="radio" name="FX_T5_GENANT" id="FX_T5_GENANT" value=2></td>
+            <td><input type="radio" name="FX_T5_GENANT" id="FX_T5_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_T5_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_T5_VP" value=1></td>
+            </tr>
+            
+            <tr>
+            <td><input type="checkbox" id="FX_T4" value="> Vertebral fracture at T4">T4</td>
+            <td><input type="radio" name="FX_T4_GENANT" id="FX_T4_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_T4_GENANT" id="FX_T4_GENANT" value=1></td>
+            <td><input type="radio" name="FX_T4_GENANT" id="FX_T4_GENANT" value=2></td>
+            <td><input type="radio" name="FX_T4_GENANT" id="FX_T4_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_T4_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_T4_VP" value=1></td>
+            </tr>
 
-                <tr>
-                <td><input type="checkbox" id="FX_T4" value="> Vertebral fracture at T4">T4</td>
-                <td><input type="radio" name="FX_T4_GENANT" id="FX_T4_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_T4_GENANT" id="FX_T4_GENANT" value=1></td>
-                <td><input type="radio" name="FX_T4_GENANT" id="FX_T4_GENANT" value=2></td>
-                <td><input type="radio" name="FX_T4_GENANT" id="FX_T4_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_T4_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_T4_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_T3" value="> Vertebral fracture at T3">T3</td>
+            <td><input type="radio" name="FX_T3_GENANT" id="FX_T3_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_T3_GENANT" id="FX_T3_GENANT" value=1></td>
+            <td><input type="radio" name="FX_T3_GENANT" id="FX_T3_GENANT" value=2></td>
+            <td><input type="radio" name="FX_T3_GENANT" id="FX_T3_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_T3_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_T3_VP" value=1></td>
+            </tr>
 
-                <tr>
-                <td><input type="checkbox" id="FX_T3" value="> Vertebral fracture at T3">T3</td>
-                <td><input type="radio" name="FX_T3_GENANT" id="FX_T3_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_T3_GENANT" id="FX_T3_GENANT" value=1></td>
-                <td><input type="radio" name="FX_T3_GENANT" id="FX_T3_GENANT" value=2></td>
-                <td><input type="radio" name="FX_T3_GENANT" id="FX_T3_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_T3_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_T3_VP" value=1></td>
-                </tr>
-
-
-                <tr>
-                <td><input type="checkbox" id="FX_T2" value="> Vertebral fracture at T2">T2</td>
-                <td><input type="radio" name="FX_T2_GENANT" id="FX_T2_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_T2_GENANT" id="FX_T2_GENANT" value=1></td>
-                <td><input type="radio" name="FX_T2_GENANT" id="FX_T2_GENANT" value=2></td>
-                <td><input type="radio" name="FX_T2_GENANT" id="FX_T2_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_T2_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_T2_VP" value=1></td>
-                </tr>
-
-                <tr>
-                <td><input type="checkbox" id="FX_T1" value="> Vertebral fracture at T1">T1</td>
-                <td><input type="radio" name="FX_T1_GENANT" id="FX_T1_GENANT" value=0 checked="checked"></td>
-                <td><input type="radio" name="FX_T1_GENANT" id="FX_T1_GENANT" value=1></td>
-                <td><input type="radio" name="FX_T1_GENANT" id="FX_T1_GENANT" value=2></td>
-                <td><input type="radio" name="FX_T1_GENANT" id="FX_T1_GENANT" value=3></td>
-                <td><input type="checkbox" id="FX_T1_FIX" value=1></td>
-                <td><input type="checkbox" id="FX_T1_VP" value=1></td>
-                </tr>
+            <tr>
+            <td><input type="checkbox" id="FX_T2" value="> Vertebral fracture at T2">T2</td>
+            <td><input type="radio" name="FX_T2_GENANT" id="FX_T2_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_T2_GENANT" id="FX_T2_GENANT" value=1></td>
+            <td><input type="radio" name="FX_T2_GENANT" id="FX_T2_GENANT" value=2></td>
+            <td><input type="radio" name="FX_T2_GENANT" id="FX_T2_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_T2_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_T2_VP" value=1></td>
+            </tr>
+            
+            <tr>
+            <td><input type="checkbox" id="FX_T1" value="> Vertebral fracture at T1">T1</td>
+            <td><input type="radio" name="FX_T1_GENANT" id="FX_T1_GENANT" value=0 checked="checked"></td>
+            <td><input type="radio" name="FX_T1_GENANT" id="FX_T1_GENANT" value=1></td>
+            <td><input type="radio" name="FX_T1_GENANT" id="FX_T1_GENANT" value=2></td>
+            <td><input type="radio" name="FX_T1_GENANT" id="FX_T1_GENANT" value=3></td>
+            <td><input type="checkbox" id="FX_T1_FIX" value=1></td>
+            <td><input type="checkbox" id="FX_T1_VP" value=1></td>
+            </tr>
                             
-                </table>
+        </table>
                 
-                <input type="checkbox" id="G3_NOT_SURE" value=""> (Grade 3 cannot be sure)<br>
-                If the fracture is neither due to traumatic injury nor bone metastasis, <br>
-                according to WHO criteria, the result showed <br>
-                Grade 3 severe osteoporosis with fragility fracture;<br>
-                otherwise, <br>
-                Grade 0 normal bone density (T score >= -1.0).<br>
-                Grade 1 osteopenia (-2.5 < T score < -1.0).<br>
-                Grade 2 osteoporosis (T score <= -2.5).<br>
-                Suggest clinical correlation.<br><br><br>
+        <input type="checkbox" id="G3_NOT_SURE" value=""> (Grade 3 cannot be sure)<br>
+        If the fracture is neither due to traumatic injury nor bone metastasis, <br>
+        according to WHO criteria, the result showed <br>
+        Grade 3 severe osteoporosis with fragility fracture;<br>
+        otherwise, <br>
+        Grade 0 normal bone density (T score >= -1.0).<br>
+        Grade 1 osteopenia (-2.5 < T score < -1.0).<br>
+        Grade 2 osteoporosis (T score <= -2.5).<br>
+        Suggest clinical correlation.<br><br><br>
                 
                                 
-                 <input type="checkbox" id="LSP_HOLOGIC" value="">Previous lumbar spine DXA is Hologic system:<br>
-                 > Exam date=<input type="date" id="PREVIOUS_LSP_EXAM_DATE"><br>
-                 > BMD= <input type="number" id="PREVIOUS_LSP_EXAM_LSP_BMD"><br>
+        <input type="checkbox" id="PREVIOUS_LSP" value="">Previous lumbar spine DXA:<br>
+        > Exam date=<input type="date" id="PREVIOUS_LSP_EXAM_DATE"><br>
+        > BMD= <input type="number" id="PREVIOUS_LSP_EXAM_LSP_BMD"><br>
      
-                Report of lumbar spine <input type="button" value="Report output" onclick="DXA_REPORTING()"><br>
+        Report of lumbar spine <input type="button" value="Report output" onclick="DXA_REPORTING()"><br>
 
-    --------------------------<br>
-                <input type="button" value="clean report text" onclick="javascript:parent.frames['DXA_RESULT'].document.write('<html> <body bgcolor=bisque> </body></html>');">
-                <input type="button" value="clean input values" onclick="this.form.reset();"><br>
+        --------------------------<br>
+        <input type="button" value="clean report text" onclick="javascript:parent.frames['DXA_RESULT'].document.write('<html> <body bgcolor=bisque> </body></html>');">
+        <input type="button" value="clean input values" onclick="this.form.reset();"><br>
 
 
-                </form>	
+        </form>	
     </td>
 
-    <td valign="top">
+    <td valign="top" width="30%">
         DXA of hips:
-                <form id= "HIP_EXAM">     
-                <br>Exam date:<br>
-                    <input type="radio" checked="checked" id="HIP_EXAM_DATE_SELECT" name="HIP_EXAM_DATE_SELECT" value="same">the same as lumbar spine.<br>
-                    <input type="radio" id="HIP_EXAM_DATE_SELECT" name="HIP_EXAM_DATE_SELECT" value="different">different: <input type="date" id="HIP_EXAM_DATE"><br>
-                    <input type="button" value="clean exam date" onclick="this.form.reset();"><br>
-                </form>
-                <br><br>
-                <form NAME= "DXA_HIP">
+        <form id= "HIP_EXAM" name="HIP_EXAM">     
+        <br>Exam date:<br>
+        <input type="radio" id="HIP_EXAM_DATE_SELECT" name="HIP_EXAM_DATE_SELECT" value="same" checked="checked">the same as lumbar spine.<br>
+        <input type="radio" id="HIP_EXAM_DATE_SELECT" name="HIP_EXAM_DATE_SELECT" value="different">different: <input type="date" id="HIP_EXAM_DATE"><br>
+        <input type="button" value="clean exam date" onclick="this.form.reset();"><br>
+        </form>
+        <br><br>
+        
+        <form NAME= "DXA_HIP">
 
-     Left hip:<br>
-     > BMD= <INPUT TYPE="number" ID="LH_BMD"><br>
-     > T-score= <INPUT TYPE="number" ID="LH_TSCORE"><br>
-     > Z-score= <INPUT TYPE="number" ID="LH_ZSCORE"><br>
-     <input type="checkbox" ID="LH_OP" value="">Post operation of left hip<br><br>
-     Right hip:<br>
-     > BMD= <INPUT TYPE="number" ID="RH_BMD"><br>
-     > T-score= <INPUT TYPE="number" ID="RH_TSCORE"><br>
-     > Z-score= <INPUT TYPE="number" ID="RH_ZSCORE"><br>
-     <input type="checkbox" ID="RH_OP" value="">Post operation of right hip<br><br>
+        Left hip:<br>
+        > BMD= <INPUT TYPE="number" ID="LH_BMD"><br>
+        > T-score= <INPUT TYPE="number" ID="LH_TSCORE"><br>
+        > Z-score= <INPUT TYPE="number" ID="LH_ZSCORE"><br>
+        <input type="checkbox" ID="LH_OP" value="">Post operation of left hip<br><br>
+        Right hip:<br>
+        > BMD= <INPUT TYPE="number" ID="RH_BMD"><br>
+        > T-score= <INPUT TYPE="number" ID="RH_TSCORE"><br>
+        > Z-score= <INPUT TYPE="number" ID="RH_ZSCORE"><br>
+        <input type="checkbox" ID="RH_OP" value="">Post operation of right hip<br><br><br><br>
      
-     <input type="checkbox" ID="HIP_HOLOGIC" value="">Previous hip DXA is Hologic system:<br>
-     > Exam date=<INPUT TYPE="date" ID="PREVIOUS_HIP_EXAM_DATE"><br>
-     Left hip:<br>
-     > BMD= <INPUT TYPE="number" ID="PREVIOUS_HIP_EXAM_LH_BMD"><br><br>
-     Right hip:<br>
-     > BMD= <INPUT TYPE="number" ID="PREVIOUS_HIP_EXAM_RH_BMD"><br><br>
+        <input type="checkbox" ID="PREVIOUS_HIP" value="">Previous hip DXA:<br>
+        > Exam date=<br>
+        <input type="radio" id="PREVIOUS_HIP_EXAM_DATE_SELECT" name="PREVIOUS_HIP_EXAM_DATE_SELECT" value="same" checked="checked">the same as previous lumbar spine.<br>
+        <input type="radio" id="PREVIOUS_HIP_EXAM_DATE_SELECT" name="PREVIOUS_HIP_EXAM_DATE_SELECT" value="different"><INPUT TYPE="date" ID="PREVIOUS_HIP_EXAM_DATE"><br><br>
+        Left hip:<br>
+        > BMD= <INPUT TYPE="number" ID="PREVIOUS_HIP_EXAM_LH_BMD"><br><br>
+        Right hip:<br>
+        > BMD= <INPUT TYPE="number" ID="PREVIOUS_HIP_EXAM_RH_BMD"><br><br>
 
-    Report of hips <input type="button" value="Report output" onclick="DXA_HIP_REPORTING()"><br>
+        Report of hips <input type="button" value="Report output" onclick="DXA_REPORTING()"><br>
     
-    --------------------------<br>
-    <input type="button" value="clean report text" onclick="javascript:parent.frames['DXA_RESULT'].document.write('<html> <body bgcolor=bisque> </body></html>');">
-	<input type="button" value="clean input values" onclick="this.form.reset();"><br>
+        --------------------------<br>
+        <input type="button" value="clean report text" onclick="javascript:parent.frames['DXA_RESULT'].document.write('<html> <body bgcolor=bisque> </body></html>');">
+	    <input type="button" value="clean input values" onclick="this.form.reset();"><br>
 
-    </form>	
+        </form>	
     </td>
 
-    <td valign="top">
-    DXA of total body:
-                <form id= "BODY_EXAM">
-                <br>Exam date:<br>
-                    <input type="radio" checked="checked" id="BODY_EXAM_DATE_SELECT" name="BODY_EXAM_DATE_SELECT" value="same">the same as lumbar spine.<br>
-                    <input type="radio" id="BODY_EXAM_DATE_SELECT" name="BODY_EXAM_DATE_SELECT" value="different">different: <input type="date" id="BODY_EXAM_DATE"><br>
-                    <input type="button" value="clean exam date" onclick="this.form.reset();"><br>
-                    
-                    
-            </form> 
+    <td valign="top" width="30%">
+        DXA of total body:
+        <form id= "BODY_EXAM">
+        <br>Exam date:<br>
+        <input type="radio" id="BODY_EXAM_DATE_SELECT" name="BODY_EXAM_DATE_SELECT" value="same" checked="checked">the same as lumbar spine.<br>
+        <input type="radio" id="BODY_EXAM_DATE_SELECT" name="BODY_EXAM_DATE_SELECT" value="different">different: <input type="date" id="BODY_EXAM_DATE"><br>
+        <input type="button" value="clean exam date" onclick="this.form.reset();"><br>
+        </form> 
+        <br><br>
+        
+        <form NAME= "DXA_BODY">
+        Total body:<br>
+        > BMD= <INPUT TYPE="number" ID="BODY_BMD"><br>
+        > T-score= <INPUT TYPE="number" ID="BODY_TSCORE"><br>
+        > Z-score= <INPUT TYPE="number" ID="BODY_ZSCORE"><br><br><br>
+        <input type="checkbox" ID="BODY_MUSCLE_CHECKED" value="">Muscle mass measurement:<br><br>
+        
+        > Sex:<br>
+        <input type="radio" id="BODY_SEX" name="BODY_SEX" value="1" checked="checked">male<br> 
+        <input type="radio" id="BODY_SEX" name="BODY_SEX" value="0">female<br><br>
+        
+        > Lean mass of left arm  <br>= <INPUT TYPE="number" ID="BODY_LALM_G">(g) <br>= <INPUT TYPE="number" ID="BODY_LALM_KG">(Kg)<br><br>
+        > Lean mass of right arm <br>= <INPUT TYPE="number" ID="BODY_RALM_G">(g) <br>= <INPUT TYPE="number" ID="BODY_RALM_KG">(Kg)<br><br>
+        > Lean mass of left leg  <br>= <INPUT TYPE="number" ID="BODY_LLLM_G">(g) <br>= <INPUT TYPE="number" ID="BODY_LLLM_KG">(Kg)<br><br>
+        > Lean mass of right leg <br>= <INPUT TYPE="number" ID="BODY_RLLM_G">(g) <br>= <INPUT TYPE="number" ID="BODY_RLLM_KG">(Kg)<br><br>
+        > Height <br>= <INPUT TYPE="number" ID="BODY_HEIGHT_CM">(cm) <br>= <INPUT TYPE="number" ID="BODY_HEIGHT_M">(m) <br><br>
+
+        Report of total body <input type="button" value="Report output" onclick="DXA_REPORTING()"><br>
+    
+        --------------------------<br>
+        <input type="button" value="clean report text" onclick="javascript:parent.frames['DXA_RESULT'].document.write('<html> <body bgcolor=bisque> </body></html>');">
+        <input type="button" value="clean input values" onclick="this.form.reset();"><br>
+
+        </form>     
     </td>
 </tr>
-           
-</table>    
+</table>
+
+<br><br><br><br>
+---------------------------------------------------------------------<br>
+LSC data:<br>
+<table>
+    <tr>
+        <td></td>
+        <td width="17%">Hospital</td>
+        <td width="27%">Lumbar spine (g/cm2)</td>
+        <td width="27%">right hip (g/cm2)</td>
+        <td width="27%">left hip (g/cm2)</td>
+    </tr>
+    <tr>
+        <td><input type="radio" id="LSC_CHOICE" name="LSC_CHOICE" value="VGHTPE" checked="checked"></td>
+        <td>VGHTPE:</td>
+        <td align="center" valign="center">0.031</td>
+        <td align="center" valign="center">0.038</td>
+        <td align="center" valign="center">0.033</td>
+    </tr>
+        <tr>
+        <td><input type="radio" id="LSC_CHOICE" name="LSC_CHOICE" value="TPECHZX"></td>
+        <td>TPECH-ZX:</td>
+        <td align="center" valign="center"><INPUT TYPE="number" ID="TPECHZX_LSC_LSP"></td>
+        <td align="center" valign="center"><INPUT TYPE="number" ID="TPECHZX_LSC_RH"></td>
+        <td align="center" valign="center"><INPUT TYPE="number" ID="TPECHZX_LSC_LH"></td>
+    </tr>
+        <tr>
+        <td><input type="radio" id="LSC_CHOICE" name="LSC_CHOICE" value="OTHERS"></td>
+        <td>Other:</td>
+        <td align="center" valign="center"><INPUT TYPE="number" ID="OTHER_LSC_LSP"></td>
+        <td align="center" valign="center"><INPUT TYPE="number" ID="OTHER_LSC_RH"></td>
+        <td align="center" valign="center"><INPUT TYPE="number" ID="OTHER_LSC_LH"></td>
+    </tr>
+</table>
+
 </body>
 </html>

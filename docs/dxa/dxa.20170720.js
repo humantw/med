@@ -1,7 +1,53 @@
 function DXA_REPORTING(){
 /* Exam Date variants */
+    //LSP_EXAM_DATE
     var VAR_LSP_EXAM_DATE=document.getElementById("LSP_EXAM_DATE");
-    var VAR_PREVIOUS_LSP_EXAM_DATE=document.getElementById("PREVIOUS_LSP_EXAM_DATE");    
+    var VAR_PREVIOUS_LSP_EXAM_DATE=document.getElementById("PREVIOUS_LSP_EXAM_DATE");
+    
+    //HIP_DXAM_DATE
+    var ARRAY_HIP_EXAM_DATE_SELECT = document.getElementsByName("HIP_EXAM_DATE_SELECT");
+    var VAR_HIP_EXAM_DATE_SELECT;
+       for(var i = 0; i < ARRAY_HIP_EXAM_DATE_SELECT.length; i++){
+            if(ARRAY_HIP_EXAM_DATE_SELECT[i].checked){
+                VAR_HIP_EXAM_DATE_SELECT = {
+                    "id" : "HIP_EXAM_DATE_SELECT",
+                    "value" : ARRAY_HIP_EXAM_DATE_SELECT[i].value
+                };
+            }
+       }
+    var VAR_HIP_EXAM_DATE=document.getElementById("HIP_EXAM_DATE");
+    if (VAR_HIP_EXAM_DATE_SELECT.value == "same")
+        {VAR_HIP_EXAM_DATE.value = VAR_LSP_EXAM_DATE.value;}
+   
+    //BODY_EXAM_DATE
+    var ARRAY_BODY_EXAM_DATE_SELECT = document.getElementsByName("BODY_EXAM_DATE_SELECT");
+    var VAR_BODY_EXAM_DATE_SELECT;
+       for(var i = 0; i < ARRAY_BODY_EXAM_DATE_SELECT.length; i++){
+            if(ARRAY_BODY_EXAM_DATE_SELECT[i].checked){
+                VAR_BODY_EXAM_DATE_SELECT = {
+                    "id" : "BODY_EXAM_DATE_SELECT",
+                    "value" : ARRAY_BODY_EXAM_DATE_SELECT[i].value
+                };
+            }
+       }
+    var VAR_BODY_EXAM_DATE=document.getElementById("BODY_EXAM_DATE");
+    if (VAR_BODY_EXAM_DATE_SELECT.value == "same")
+        {VAR_BODY_EXAM_DATE.value = VAR_LSP_EXAM_DATE.value;}
+    
+    //PREVIOUS_EXAM_DATE
+    var ARRAY_PREVIOUS_HIP_EXAM_DATE_SELECT = document.getElementsByName("PREVIOUS_HIP_EXAM_DATE_SELECT");
+    var VAR_PREVIOUS_HIP_EXAM_DATE_SELECT;
+       for(var i = 0; i < ARRAY_PREVIOUS_HIP_EXAM_DATE_SELECT.length; i++){
+            if(ARRAY_PREVIOUS_HIP_EXAM_DATE_SELECT[i].checked){
+                VAR_PREVIOUS_HIP_EXAM_DATE_SELECT = {
+                    "id" : "PREVIOUS_HIP_EXAM_DATE_SELECT",
+                    "value" : ARRAY_PREVIOUS_HIP_EXAM_DATE_SELECT[i].value
+                };
+            }
+       }
+    var VAR_PREVIOUS_HIP_EXAM_DATE=document.getElementById("PREVIOUS_HIP_EXAM_DATE");
+    if (VAR_PREVIOUS_HIP_EXAM_DATE_SELECT.value == "same")
+        {VAR_PREVIOUS_HIP_EXAM_DATE.value = VAR_PREVIOUS_LSP_EXAM_DATE.value;}
     
 /* LSP variants */
     var VAR_LSP_BMD=document.getElementById("LSP_BMD");
@@ -17,7 +63,7 @@ function DXA_REPORTING(){
             "id" : "ABS_DELTA_LSP_BMD",
             "value" : Math.abs(VAR_DELTA_LSP_BMD.value).toFixed(3)
         };
-    var VAR_LSP_HOLOGIC=document.getElementById("LSP_HOLOGIC");
+    var VAR_PREVIOUS_LSP=document.getElementById("PREVIOUS_LSP");
     var VAR_VGH_LSC_LSP=0.031;
     var VAR_VGH_LSC_LH=0.033;
     var VAR_VGH_LSC_RH=0.038;
@@ -177,29 +223,33 @@ function DXA_REPORTING(){
 
     console.log('Console log: Variants in DXA_REPORTING');
     
-    function log(){
+    function logID(){
         for(i=0;i<arguments.length;console.log(arguments[i].id + " = " + arguments[i].value),i++);
     }
+    console.log('-- LSP --');
+    logID(VAR_LSP_EXAM_DATE, VAR_LSP_BMD, VAR_LSP_TSCORE, VAR_LSP_ZSCORE);
+   
+    console.log('-- HIP --');
+    logID(VAR_HIP_EXAM_DATE_SELECT, VAR_HIP_EXAM_DATE);
     
-    log(VAR_LSP_EXAM_DATE, VAR_LSP_BMD, VAR_LSP_TSCORE, VAR_LSP_ZSCORE);
     
-    log(VAR_PREVIOUS_LSP_EXAM_DATE);
     
-    log(VAR_PREVIOUS_LSP_EXAM_LSP_BMD, VAR_DELTA_LSP_BMD, VAR_ABS_DELTA_LSP_BMD);
+    console.log('-- body --');
+    logID(VAR_BODY_EXAM_DATE_SELECT, VAR_BODY_EXAM_DATE);
     
-    console.log('PREVIOUS_LSP_EXAM_DATE = ' + VAR_PREVIOUS_LSP_EXAM_DATE.value);
-    console.log('PREVIOUS_LSP_EXAM_LSP_BMD = ' + VAR_PREVIOUS_LSP_EXAM_LSP_BMD.value);
-    console.log('LSP_BMD - PREVIOUS_LSP_BMD = ' + VAR_DELTA_LSP_BMD.value);
-    console.log('abs(DELTA_LSP_BMD) = ' + VAR_ABS_DELTA_LSP_BMD.value);
+    console.log('-- LSC --');
+    console.log('PREVIOUS_LSP = ' + PREVIOUS_LSP.checked);
     
-    console.log('LSP_HOLOGIC = ' + VAR_LSP_HOLOGIC.checked);
+    logID(VAR_PREVIOUS_LSP_EXAM_DATE, VAR_PREVIOUS_LSP_EXAM_LSP_BMD, VAR_DELTA_LSP_BMD, VAR_ABS_DELTA_LSP_BMD); 
+    
+    logID(VAR_PREVIOUS_HIP_EXAM_DATE_SELECT, VAR_PREVIOUS_HIP_EXAM_DATE);
+    
+    console.log('-- LSC data--');
     console.log('VGH_LSC_LSP = ' + VAR_VGH_LSC_LSP);
     console.log('VGH_LSC_LH = ' + VAR_VGH_LSC_LH);
     console.log('VGH_LSC_RH = ' + VAR_VGH_LSC_RH);
     
 
-    
-// next mission: add console log of LSP fracture variants    
-   
+  
 
 }
