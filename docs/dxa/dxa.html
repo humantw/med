@@ -31,7 +31,8 @@
         > T-score= <input type="number" id="LSP_TSCORE"><br>
         > Z-score= <input type="number" id="LSP_ZSCORE"><br><br>
      
-        <input type="checkbox" id="VFA" value="Vertebral Fracture Assessment (VFA):">Vertebral Fracture Assessment (VFA): <br><br>
+        <input type="checkbox" id="VFA" value="Vertebral Fracture Assessment (VFA):" onclick="ShowVFA()">Vertebral Fracture Assessment (VFA): <br>
+        <div id="VFA_TABLE" style="display:none">
         <table border="1">
             <tr>
             <td rowspan="2">Fx site</td>
@@ -245,9 +246,10 @@
         Grade 0 normal bone density (T score >= -1.0).<br>
         Grade 1 osteopenia (-2.5 < T score < -1.0).<br>
         Grade 2 osteoporosis (T score <= -2.5).<br>
-        Suggest clinical correlation.<br><br><br>
-                
-                                
+        Suggest clinical correlation.<br>
+        
+        </div>        
+        <br><br><br><br> 
         <input type="checkbox" id="PREVIOUS_LSP" value="">Previous lumbar spine DXA:<br>
         > Exam date=<input type="date" id="PREVIOUS_LSP_EXAM_DATE"><br>
         > BMD= <input type="number" id="PREVIOUS_LSP_EXAM_LSP_BMD"><br>
@@ -275,15 +277,19 @@
         <form NAME= "DXA_HIP">
 
         Left hip:<br>
+        <div id="DIV_LH" style="display:block">
         > BMD= <INPUT TYPE="number" ID="LH_BMD"><br>
         > T-score= <INPUT TYPE="number" ID="LH_TSCORE"><br>
         > Z-score= <INPUT TYPE="number" ID="LH_ZSCORE"><br>
-        <input type="checkbox" ID="LH_OP" value="">Post operation of left hip<br><br>
+        </div>
+        <input type="checkbox" ID="LH_OP" value="" onclick="HideLH()">Post operation of left hip<br><br>
         Right hip:<br>
+        <div id="DIV_RH" style="display:block">
         > BMD= <INPUT TYPE="number" ID="RH_BMD"><br>
         > T-score= <INPUT TYPE="number" ID="RH_TSCORE"><br>
         > Z-score= <INPUT TYPE="number" ID="RH_ZSCORE"><br>
-        <input type="checkbox" ID="RH_OP" value="">Post operation of right hip<br><br><br><br>
+        </div>
+        <input type="checkbox" ID="RH_OP" value="" onclick="HideRH()">Post operation of right hip<br><br><br><br>
      
         <input type="checkbox" ID="PREVIOUS_HIP" value="">Previous hip DXA:<br>
         > Exam date=<br>
@@ -315,20 +321,20 @@
         
         <form NAME= "DXA_BODY">
         Total body:<br>
-        > BMD= <INPUT TYPE="number" ID="BODY_BMD"><br>
-        > T-score= <INPUT TYPE="number" ID="BODY_TSCORE"><br>
-        > Z-score= <INPUT TYPE="number" ID="BODY_ZSCORE"><br><br><br>
-        <input type="checkbox" ID="BODY_MUSCLE_CHECKED" value="">Muscle mass measurement:<br><br>
+        > BMD= <INPUT TYPE="number" id="BODY_BMD"><br>
+        > T-score= <INPUT TYPE="number" id="BODY_TSCORE"><br>
+        > Z-score= <INPUT TYPE="number" id="BODY_ZSCORE"><br><br><br>
+        <input type="checkbox" id="BODY_MUSCLE" value="">Muscle mass measurement:<br><br>
         
         > Sex:<br>
         <input type="radio" id="BODY_SEX" name="BODY_SEX" value="1" checked="checked">male<br> 
         <input type="radio" id="BODY_SEX" name="BODY_SEX" value="0">female<br><br>
         
-        > Lean mass of left arm  <br>= <INPUT TYPE="number" ID="BODY_LALM_G">(g) <br>= <INPUT TYPE="number" ID="BODY_LALM_KG">(Kg)<br><br>
-        > Lean mass of right arm <br>= <INPUT TYPE="number" ID="BODY_RALM_G">(g) <br>= <INPUT TYPE="number" ID="BODY_RALM_KG">(Kg)<br><br>
-        > Lean mass of left leg  <br>= <INPUT TYPE="number" ID="BODY_LLLM_G">(g) <br>= <INPUT TYPE="number" ID="BODY_LLLM_KG">(Kg)<br><br>
-        > Lean mass of right leg <br>= <INPUT TYPE="number" ID="BODY_RLLM_G">(g) <br>= <INPUT TYPE="number" ID="BODY_RLLM_KG">(Kg)<br><br>
-        > Height <br>= <INPUT TYPE="number" ID="BODY_HEIGHT_CM">(cm) <br>= <INPUT TYPE="number" ID="BODY_HEIGHT_M">(m) <br><br>
+        > Lean mass of left arm  <br>= <INPUT TYPE="number" id="BODY_LALM_G">(g) <br>= <INPUT TYPE="number" id="BODY_LALM_KG">(Kg)<br><br>
+        > Lean mass of right arm <br>= <INPUT TYPE="number" id="BODY_RALM_G">(g) <br>= <INPUT TYPE="number" id="BODY_RALM_KG">(Kg)<br><br>
+        > Lean mass of left leg  <br>= <INPUT TYPE="number" id="BODY_LLLM_G">(g) <br>= <INPUT TYPE="number" id="BODY_LLLM_KG">(Kg)<br><br>
+        > Lean mass of right leg <br>= <INPUT TYPE="number" id="BODY_RLLM_G">(g) <br>= <INPUT TYPE="number" id="BODY_RLLM_KG">(Kg)<br><br>
+        > Height <br>= <INPUT TYPE="number" id="BODY_HEIGHT_CM">(cm) <br>= <INPUT TYPE="number" id="BODY_HEIGHT_M">(m) <br><br>
 
         Report of total body <input type="button" value="Report output" onclick="DXA_REPORTING()"><br>
     
@@ -343,7 +349,7 @@
 
 <br><br><br><br>
 ---------------------------------------------------------------------<br>
-<input type="checkbox" id="LSC_DATA_USE" value="1" checked="checked">LSC data:<br>
+<input type="checkbox" id="LSC_DATA" value="1" checked="checked">LSC data:<br>
 <table>
     <tr>
         <td></td>

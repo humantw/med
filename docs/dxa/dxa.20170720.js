@@ -1,8 +1,28 @@
+function ShowVFA() {
+    var vis = "none";
+    if(document.getElementById("VFA").checked){
+        vis = "block";
+    }
+    document.getElementById("VFA_TABLE").style.display = vis;
+}
+function HideLH() {
+    var vis = "block";
+    if(document.getElementById("LH_OP").checked){
+        vis = "none";
+    }
+    document.getElementById("DIV_LH").style.display = vis;
+}
+function HideRH() {
+    var vis = "block";
+    if(document.getElementById("RH_OP").checked){
+        vis = "none";
+    }
+    document.getElementById("DIV_RH").style.display = vis;
+}
 function DXA_REPORTING(){
 /* Exam Date variants */
     //LSP_EXAM_DATE
     var VAR_LSP_EXAM_DATE=document.getElementById("LSP_EXAM_DATE");
-    var VAR_PREVIOUS_LSP_EXAM_DATE=document.getElementById("PREVIOUS_LSP_EXAM_DATE");
     
     //HIP_DXAM_DATE
     var ARRAY_HIP_EXAM_DATE_SELECT = document.getElementsByName("HIP_EXAM_DATE_SELECT");
@@ -35,6 +55,7 @@ function DXA_REPORTING(){
         {VAR_BODY_EXAM_DATE.value = VAR_LSP_EXAM_DATE.value;}
     
     //PREVIOUS_EXAM_DATE
+    var VAR_PREVIOUS_LSP_EXAM_DATE=document.getElementById("PREVIOUS_LSP_EXAM_DATE");
     var ARRAY_PREVIOUS_HIP_EXAM_DATE_SELECT = document.getElementsByName("PREVIOUS_HIP_EXAM_DATE_SELECT");
     var VAR_PREVIOUS_HIP_EXAM_DATE_SELECT;
        for(var i = 0; i < ARRAY_PREVIOUS_HIP_EXAM_DATE_SELECT.length; i++){
@@ -110,6 +131,8 @@ function DXA_REPORTING(){
 
 /* LSP fracture variants */  
     var VAR_VFA=document.getElementById("VFA");
+    
+
 /*    
     var VAR_FX_L5 = {
             "id" : document.getElementById("FX_L5").id,
@@ -382,13 +405,49 @@ function DXA_REPORTING(){
           {
           VAR_G3_NOT_SURE.value = "if the fracture is neither due to traumatic injury nor bone metastasis, according to WHO criteria, the result showed Grade 3 severe osteoporosis with fragility fracture; otherwise, Grade 2 osteoporosis (T score <= -2.5).";
           }
-      else
+    else
           {
           }
 
-    
+/* Hip variants */    
+    var VAR_LH_BMD=document.getElementById("LH_BMD");
+    var VAR_LH_TSCORE=document.getElementById("LH_TSCORE");
+    var VAR_LH_ZSCORE=document.getElementById("LH_ZSCORE");
+    var VAR_LH_OP=document.getElementById("LH_OP");
+    var VAR_RH_BMD=document.getElementById("RH_BMD");
+    var VAR_RH_TSCORE=document.getElementById("RH_TSCORE");
+    var VAR_RH_ZSCORE=document.getElementById("RH_ZSCORE");
+    var VAR_RH_OP=document.getElementById("RH_OP");
+
+/* Body variants */    
+    var VAR_BODY_BMD=document.getElementById("BODY_BMD");
+    var VAR_BODY_TSCORE=document.getElementById("BODY_TSCORE");
+    var VAR_BODY_ZSCORE=document.getElementById("BODY_ZSCORE");
+    var VAR_BODY_MUSCLE=document.getElementById("BODY_MUSCLE");
+    var ARRAY_BODY_SEX =document.getElementsByName("BODY_SEX");
+    var VAR_BODY_SEX;
+       for(var i = 0; i < ARRAY_BODY_SEX.length; i++){
+            if(ARRAY_BODY_SEX[i].checked){
+                VAR_BODY_SEX = {
+                    "id" : "BODY_SEX",
+                    "value" : ARRAY_BODY_SEX[i].value
+                };
+            }
+       }
+    var VAR_BODY_LALM_G=document.getElementById("BODY_LALM_G");
+    var VAR_BODY_LALM_KG=document.getElementById("BODY_LALM_KG");
+    var VAR_BODY_RALM_G=document.getElementById("BODY_RALM_G");
+    var VAR_BODY_RALM_KG=document.getElementById("BODY_RALM_KG");
+    var VAR_BODY_LLLM_G=document.getElementById("BODY_LLLM_G");
+    var VAR_BODY_LLLM_KG=document.getElementById("BODY_LLLM_KG");
+    var VAR_BODY_RLLM_G=document.getElementById("BODY_RLLM_G");
+    var VAR_BODY_RLLM_KG=document.getElementById("BODY_RLLM_KG");    
+    var VAR_BODY_HEIGHT_CM=document.getElementById("BODY_HEIGHT_CM");
+    var VAR_BODY_HEIGHT_M=document.getElementById("BODY_HEIGHT_M");
+        
+/* LSC */
     // LSC: LSP
-    
+    var VAR_PREVIOUS_LSP=document.getElementById("PREVIOUS_LSP");
     var VAR_PREVIOUS_LSP_EXAM_LSP_BMD=document.getElementById("PREVIOUS_LSP_EXAM_LSP_BMD");
     var VAR_DELTA_LSP_BMD = {
             "id" : "DELTA_LSP_BMD",
@@ -398,24 +457,131 @@ function DXA_REPORTING(){
             "id" : "ABS_DELTA_LSP_BMD",
             "value" : Math.abs(VAR_DELTA_LSP_BMD.value).toFixed(3)
         };
-    var VAR_PREVIOUS_LSP=document.getElementById("PREVIOUS_LSP");
+    
     
     // LSC: HIP
+    var VAR_PREVIOUS_HIP=document.getElementById("PREVIOUS_HIP");
+    var VAR_PREVIOUS_HIP_EXAM_LH_BMD=document.getElementById("PREVIOUS_HIP_EXAM_LH_BMD");
+    var VAR_PREVIOUS_HIP_EXAM_RH_BMD=document.getElementById("PREVIOUS_HIP_EXAM_RH_BMD");
     
-    
+    var VAR_DELTA_LH_BMD = {
+        "id" : "DELTA_LH_BMD",
+        "value" : (VAR_LH_BMD.value-VAR_PREVIOUS_HIP_EXAM_LH_BMD.value).toFixed(3)
+    };
+    var VAR_ABS_DELTA_LH_BMD = {
+        "id" : "ABS_DELTA_LH_BMD",
+        "value" : Math.abs(VAR_DELTA_LH_BMD.value).toFixed(3)
+    };
+        var VAR_DELTA_RH_BMD = {
+        "id" : "DELTA_RH_BMD",
+        "value" : (VAR_RH_BMD.value-VAR_PREVIOUS_HIP_EXAM_RH_BMD.value).toFixed(3)
+    };
+    var VAR_ABS_DELTA_RH_BMD = {
+        "id" : "ABS_DELTA_RH_BMD",
+        "value" : Math.abs(VAR_DELTA_RH_BMD.value).toFixed(3)
+    };
+        
     // LSC data
-    var VAR_LSC_LSP_VGH=document.getElementById("LSC_LSP_VGHTPE");
-    var VAR_LSC_RH_VGH=document.getElementById("LSC_RH_VGHTPE");
-    var VAR_LSC_LH_VGH=document.getElementById("LSC_LH_VGHTPE");
+    var VAR_LSC_DATA=document.getElementById("LSC_DATA");
+    var ARRAY_LSC_CHOICE =document.getElementsByName("LSC_CHOICE");
+    var VAR_LSC_CHOICE;
+       for(var i = 0; i < ARRAY_LSC_CHOICE.length; i++){
+            if(ARRAY_LSC_CHOICE[i].checked){
+                VAR_LSC_CHOICE = {
+                    "id" : "LSC_CHOICE",
+                    "value" : ARRAY_LSC_CHOICE[i].value
+                };
+            }
+       }
+    
+    var VAR_LSC_LSP_VGHTPE=document.getElementById("LSC_LSP_VGHTPE");
+    var VAR_LSC_RH_VGHTPE=document.getElementById("LSC_RH_VGHTPE");
+    var VAR_LSC_LH_VGHTPE=document.getElementById("LSC_LH_VGHTPE");
     
     var VAR_LSC_LSP_TPECHZX=document.getElementById("LSC_LSP_TPECHZX");
     var VAR_LSC_RH_TPECHZX=document.getElementById("LSC_RH_TPECHZX");
     var VAR_LSC_LH_TPECHZX=document.getElementById("LSC_LH_TPECHZX");
     
+    var VAR_LSC_OTHER=document.getElementById("LSC_OTHER");
     var VAR_LSC_LSP_OTHER=document.getElementById("LSC_LSP_OTHER");
     var VAR_LSC_RH_OTHER=document.getElementById("LSC_RH_OTHER");
     var VAR_LSC_LH_OTHER=document.getElementById("LSC_LH_OTHER");
-
+    
+    var VAR_LSC_HOSPITAL;
+    var VAR_LSC_LSP;
+    var VAR_LSC_RH;
+    var VAR_LSC_LH;
+    
+    if(VAR_LSC_CHOICE.value == "OTHERS"){
+        if(VAR_LSC_OTHER.value == "hospital name"){
+            alert('Please input hospital name!!');return;
+        }
+        else{
+            var VAR_LSC_HOSPITAL= {
+                "id" : "LSC_HOSPITAL",
+                "value" : VAR_LSC_OTHER.value
+            };                   
+        }
+        if(!VAR_LSC_LSP_OTHER.value || !VAR_LSC_RH_OTHER.value || !VAR_LSC_LH_OTHER.value){
+            alert('Please input LSC data in your hospital!!');return;
+        }
+        else{
+            var VAR_LSC_LSP= {
+                "id" : "LSC_LSP",
+                "value" : VAR_LSC_LSP_OTHER.value
+            }; 
+            var VAR_LSC_RH= {
+                "id" : "LSC_RH",
+                "value" : VAR_LSC_RH_OTHER.value
+            }; 
+            var VAR_LSC_LH= {
+                "id" : "LSC_LH",
+                "value" : VAR_LSC_LH_OTHER.value
+            };
+        }
+    }
+    else if(VAR_LSC_CHOICE.value == "TPECHZX"){
+        var VAR_LSC_HOSPITAL= {
+                "id" : "LSC_HOSPITAL",
+                "value" : "Taipei City Hospital ZhongXing Branch"
+        };                   
+        if(!VAR_LSC_LSP_TPECHZX.value || !VAR_LSC_RH_TPECHZX.value || !VAR_LSC_LH_TPECHZX.value){
+            alert('Please input LSC data in TPECH-ZX!!');return;
+        }
+        else{
+            var VAR_LSC_LSP= {
+                "id" : "LSC_LSP",
+                "value" : VAR_LSC_LSP_TPECHZX.value
+            }; 
+            var VAR_LSC_RH= {
+                "id" : "LSC_RH",
+                "value" : VAR_LSC_RH_TPECHZX.value
+            }; 
+            var VAR_LSC_LH= {
+                "id" : "LSC_LH",
+                "value" : VAR_LSC_LH_TPECHZX.value
+            };
+        }
+    }
+    else{
+        var VAR_LSC_HOSPITAL= {
+                "id" : "LSC_HOSPITAL",
+                "value" : "Taipei Veterans General Hospital"
+        };                   
+        var VAR_LSC_LSP= {
+            "id" : "LSC_LSP",
+            "value" : VAR_LSC_LSP_VGHTPE.value
+        }; 
+        var VAR_LSC_RH= {
+            "id" : "LSC_RH",
+            "value" : VAR_LSC_RH_VGHTPE.value
+        }; 
+        var VAR_LSC_LH= {
+            "id" : "LSC_LH",
+            "value" : VAR_LSC_LH_VGHTPE.value
+        };    
+    }
+    
 /* Console log for variants */    
 
     console.log('-----Console log: Variants in DXA_REPORTING-----');
@@ -423,53 +589,54 @@ function DXA_REPORTING(){
     function logID(){
         for(i=0;i<arguments.length;console.log(arguments[i].id + " = " + arguments[i].value),i++);
     }
-    function logCHECKBOX(){
+    function logCheck(){
         for(i=0;i<arguments.length;console.log(arguments[i].id + " = " + arguments[i].value + ", checked =" + arguments[i].checked),i++);
     }
-
-    function logConsoleTable(){
+    function logIDTable(){
+        var logArray=new Array();        for(i=0;i<arguments.length;logArray.push(arguments[i]),i++);console.table(logArray,["id", "value"]);
+    }
+    function logCheckTable(){
         var logArray=new Array();        for(i=0;i<arguments.length;logArray.push(arguments[i]),i++);console.table(logArray,["id", "checked", "value"]);
     }
-    function logFXConsoleTable(){
+    function logFXTable(){
         var logArray=new Array();        for(i=0;i<arguments.length;logArray.push(arguments[i]),i++);console.table(logArray,["id", "checked", "value", "genant", "vp_checked", "vp_value", "fix_checked", "fix_value"]);
     }
+    
+    console.log('-- Exam date --');
+    logIDTable(VAR_LSP_EXAM_DATE, VAR_HIP_EXAM_DATE_SELECT, VAR_HIP_EXAM_DATE, VAR_BODY_EXAM_DATE_SELECT, VAR_BODY_EXAM_DATE)
+        
     console.log('-- LSP --');
-    logID(VAR_LSP_EXAM_DATE, VAR_LSP_BMD, VAR_LSP_TSCORE, VAR_LSP_ZSCORE);
-    console.log('-- FOV of LSP --');
-    logConsoleTable(VAR_FOV_L1, VAR_FOV_L2, VAR_FOV_L3, VAR_FOV_L4);
-    logCHECKBOX(VAR_FOV);
+    logCheckTable(VAR_FOV_L1, VAR_FOV_L2, VAR_FOV_L3, VAR_FOV_L4, VAR_FOV);
+    logIDTable(VAR_LSP_EXAM_DATE, VAR_LSP_BMD, VAR_LSP_TSCORE, VAR_LSP_ZSCORE);
+    
     console.log('-- LSP FX variants --');
-    logCHECKBOX(VAR_VFA);
-    logFXConsoleTable(VAR_FX_T1, VAR_FX_T2, VAR_FX_T3, VAR_FX_T4, VAR_FX_T5, VAR_FX_T6, VAR_FX_T7, VAR_FX_T8, VAR_FX_T9, VAR_FX_T10, VAR_FX_T11, VAR_FX_T12, VAR_FX_L1, VAR_FX_L2, VAR_FX_L3, VAR_FX_L4, VAR_FX_L5);
-    logConsoleTable(VAR_FX,VAR_G3_NOT_SURE);
+    logFXTable(VAR_FX_T1, VAR_FX_T2, VAR_FX_T3, VAR_FX_T4, VAR_FX_T5, VAR_FX_T6, VAR_FX_T7, VAR_FX_T8, VAR_FX_T9, VAR_FX_T10, VAR_FX_T11, VAR_FX_T12, VAR_FX_L1, VAR_FX_L2, VAR_FX_L3, VAR_FX_L4, VAR_FX_L5);
+    logCheckTable(VAR_NO_FX,VAR_FX,VAR_G3_NOT_SURE);
+    logCheck(VAR_VFA);
     logID(VAR_NO_FX,VAR_FX,VAR_G3_NOT_SURE);
     
-//    console.table([VAR_FX_T1, VAR_FX_T2, VAR_FX_T3, VAR_FX_T4, VAR_FX_T5, VAR_FX_T6, VAR_FX_T7, VAR_FX_T8, VAR_FX_T9, VAR_FX_T10, VAR_FX_T11, VAR_FX_T12, VAR_FX_L1, VAR_FX_L2, VAR_FX_L3, VAR_FX_L4, VAR_FX_L5], ["id", "checked", "value"]);
-//    console.table([VAR_FX_L5],["id", "checked", "value", "GENANT", "fix_checked", "fix_value","vp_checked", "vp_value"]);
-    
-    
     console.log('-- HIP --');
-    logID(VAR_HIP_EXAM_DATE_SELECT, VAR_HIP_EXAM_DATE);
-    
-    
-    
+    logIDTable(VAR_LH_BMD, VAR_LH_TSCORE, VAR_LH_ZSCORE, VAR_RH_BMD, VAR_RH_TSCORE, VAR_RH_ZSCORE);
+    logCheckTable(VAR_LH_OP,VAR_RH_OP);
+      
     console.log('-- body --');
-    logID(VAR_BODY_EXAM_DATE_SELECT, VAR_BODY_EXAM_DATE);
-    
-    console.log('-- LSC --');
-    console.log('PREVIOUS_LSP = ' + PREVIOUS_LSP.checked);
-    
-    logID(VAR_PREVIOUS_LSP_EXAM_DATE, VAR_PREVIOUS_LSP_EXAM_LSP_BMD, VAR_DELTA_LSP_BMD, VAR_ABS_DELTA_LSP_BMD); 
-    
-    logID(VAR_PREVIOUS_HIP_EXAM_DATE_SELECT, VAR_PREVIOUS_HIP_EXAM_DATE);
-    
-    
+    logIDTable(VAR_BODY_BMD, VAR_BODY_TSCORE, VAR_BODY_ZSCORE);
+    logCheck(VAR_BODY_MUSCLE);
+    logID(VAR_BODY_SEX);
+    logIDTable(VAR_BODY_LALM_G, VAR_BODY_LALM_KG, VAR_BODY_RALM_G, VAR_BODY_RALM_KG, VAR_BODY_LLLM_G, VAR_BODY_LLLM_KG, VAR_BODY_RLLM_G, VAR_BODY_RLLM_KG, VAR_BODY_HEIGHT_CM, VAR_BODY_HEIGHT_M);
+        
+    console.log('-- LSC: lumbar spine --');
+    logCheck(VAR_PREVIOUS_LSP);
+    logIDTable(VAR_PREVIOUS_LSP_EXAM_DATE, VAR_PREVIOUS_LSP_EXAM_LSP_BMD, VAR_DELTA_LSP_BMD, VAR_ABS_DELTA_LSP_BMD); 
+    console.log('-- LSC: hips --');
+    logCheck(VAR_PREVIOUS_LSP);
+    logIDTable(VAR_PREVIOUS_HIP_EXAM_DATE_SELECT, VAR_PREVIOUS_HIP_EXAM_DATE, VAR_PREVIOUS_HIP_EXAM_LH_BMD, VAR_DELTA_LH_BMD, VAR_ABS_DELTA_LH_BMD, VAR_PREVIOUS_HIP_EXAM_RH_BMD, VAR_DELTA_RH_BMD, VAR_ABS_DELTA_RH_BMD);
     
     console.log('-- LSC data--');
-    logID(VAR_LSC_LSP_VGH, VAR_LSC_RH_VGH, VAR_LSC_LH_VGH);
-    logID(VAR_LSC_LSP_TPECHZX, VAR_LSC_RH_TPECHZX, VAR_LSC_LH_TPECHZX);
-    logID(VAR_LSC_LSP_OTHER, VAR_LSC_RH_OTHER, VAR_LSC_LH_OTHER);
-    
+    logID(VAR_LSC_DATA);
+    logID(VAR_LSC_CHOICE);
+    logIDTable(VAR_LSC_HOSPITAL, VAR_LSC_LSP, VAR_LSC_RH, VAR_LSC_LH);
+
 /* DXA reporting */    
     parent.frames['DXA_RESULT'].document.open(); 
 	parent.frames['DXA_RESULT'].document.write('<html>');
