@@ -14,7 +14,7 @@
         DXA of Lumbar Spine:
         <form id= "LSP_EXAM" name="LSP_EXAM">
         <br>Exam date:<br>
-        <input type="date" id="LSP_EXAM_DATE"><br>
+        <input type="date" id="LSP_EXAM_DATE"><br>        
         <input type="button" value="clean exam date" onclick="this.form.reset();"><br>
         </form> 
         <br><br>
@@ -268,8 +268,8 @@
         DXA of hips:
         <form id= "HIP_EXAM" name="HIP_EXAM">     
         <br>Exam date:<br>
-        <input type="radio" id="HIP_EXAM_DATE_SELECT" name="HIP_EXAM_DATE_SELECT" value="same" checked="checked">the same as lumbar spine.<br>
-        <input type="radio" id="HIP_EXAM_DATE_SELECT" name="HIP_EXAM_DATE_SELECT" value="different">different: <input type="date" id="HIP_EXAM_DATE"><br>
+        <input type="date" id="HIP_EXAM_DATE"><br>
+        (blank = as the same as LSP)<br>
         <input type="button" value="clean exam date" onclick="this.form.reset();"><br>
         </form>
         <br><br>
@@ -293,8 +293,7 @@
      
         <input type="checkbox" ID="PREVIOUS_HIP" value="">Previous hip DXA:<br>
         > Exam date=<br>
-        <input type="radio" id="PREVIOUS_HIP_EXAM_DATE_SELECT" name="PREVIOUS_HIP_EXAM_DATE_SELECT" value="same" checked="checked">the same as previous lumbar spine.<br>
-        <input type="radio" id="PREVIOUS_HIP_EXAM_DATE_SELECT" name="PREVIOUS_HIP_EXAM_DATE_SELECT" value="different"><INPUT TYPE="date" ID="PREVIOUS_HIP_EXAM_DATE"><br><br>
+        <INPUT TYPE="date" ID="PREVIOUS_HIP_EXAM_DATE"><br>(blank = as the same as PREVIOUS LSP)<br><br>
         Left hip:<br>
         > BMD= <INPUT TYPE="number" ID="PREVIOUS_HIP_EXAM_LH_BMD"><br><br>
         Right hip:<br>
@@ -313,8 +312,8 @@
         DXA of total body:
         <form id= "BODY_EXAM">
         <br>Exam date:<br>
-        <input type="radio" id="BODY_EXAM_DATE_SELECT" name="BODY_EXAM_DATE_SELECT" value="same" checked="checked">the same as lumbar spine.<br>
-        <input type="radio" id="BODY_EXAM_DATE_SELECT" name="BODY_EXAM_DATE_SELECT" value="different">different: <input type="date" id="BODY_EXAM_DATE"><br>
+        <input type="date" id="BODY_EXAM_DATE"><br>
+        (blank = as the same as LSP)<br>
         <input type="button" value="clean exam date" onclick="this.form.reset();"><br>
         </form> 
         <br><br>

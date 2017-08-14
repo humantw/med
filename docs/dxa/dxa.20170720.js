@@ -25,50 +25,17 @@ function DXA_REPORTING(){
     var VAR_LSP_EXAM_DATE=document.getElementById("LSP_EXAM_DATE");
     
     //HIP_DXAM_DATE
-    var ARRAY_HIP_EXAM_DATE_SELECT = document.getElementsByName("HIP_EXAM_DATE_SELECT");
-    var VAR_HIP_EXAM_DATE_SELECT;
-       for(var i = 0; i < ARRAY_HIP_EXAM_DATE_SELECT.length; i++){
-            if(ARRAY_HIP_EXAM_DATE_SELECT[i].checked){
-                VAR_HIP_EXAM_DATE_SELECT = {
-                    "id" : "HIP_EXAM_DATE_SELECT",
-                    "value" : ARRAY_HIP_EXAM_DATE_SELECT[i].value
-                };
-            }
-       }
     var VAR_HIP_EXAM_DATE=document.getElementById("HIP_EXAM_DATE");
-    if (VAR_HIP_EXAM_DATE_SELECT.value == "same")
-        {VAR_HIP_EXAM_DATE.value = VAR_LSP_EXAM_DATE.value;}
+    if (!VAR_HIP_EXAM_DATE.value){VAR_HIP_EXAM_DATE.value = VAR_LSP_EXAM_DATE.value;}
    
     //BODY_EXAM_DATE
-    var ARRAY_BODY_EXAM_DATE_SELECT = document.getElementsByName("BODY_EXAM_DATE_SELECT");
-    var VAR_BODY_EXAM_DATE_SELECT;
-       for(var i = 0; i < ARRAY_BODY_EXAM_DATE_SELECT.length; i++){
-            if(ARRAY_BODY_EXAM_DATE_SELECT[i].checked){
-                VAR_BODY_EXAM_DATE_SELECT = {
-                    "id" : "BODY_EXAM_DATE_SELECT",
-                    "value" : ARRAY_BODY_EXAM_DATE_SELECT[i].value
-                };
-            }
-       }
     var VAR_BODY_EXAM_DATE=document.getElementById("BODY_EXAM_DATE");
-    if (VAR_BODY_EXAM_DATE_SELECT.value == "same")
-        {VAR_BODY_EXAM_DATE.value = VAR_LSP_EXAM_DATE.value;}
+    if (VAR_BODY_EXAM_DATE.value){VAR_BODY_EXAM_DATE.value = VAR_LSP_EXAM_DATE.value;}
     
     //PREVIOUS_EXAM_DATE
     var VAR_PREVIOUS_LSP_EXAM_DATE=document.getElementById("PREVIOUS_LSP_EXAM_DATE");
-    var ARRAY_PREVIOUS_HIP_EXAM_DATE_SELECT = document.getElementsByName("PREVIOUS_HIP_EXAM_DATE_SELECT");
-    var VAR_PREVIOUS_HIP_EXAM_DATE_SELECT;
-       for(var i = 0; i < ARRAY_PREVIOUS_HIP_EXAM_DATE_SELECT.length; i++){
-            if(ARRAY_PREVIOUS_HIP_EXAM_DATE_SELECT[i].checked){
-                VAR_PREVIOUS_HIP_EXAM_DATE_SELECT = {
-                    "id" : "PREVIOUS_HIP_EXAM_DATE_SELECT",
-                    "value" : ARRAY_PREVIOUS_HIP_EXAM_DATE_SELECT[i].value
-                };
-            }
-       }
     var VAR_PREVIOUS_HIP_EXAM_DATE=document.getElementById("PREVIOUS_HIP_EXAM_DATE");
-    if (VAR_PREVIOUS_HIP_EXAM_DATE_SELECT.value == "same")
-        {VAR_PREVIOUS_HIP_EXAM_DATE.value = VAR_PREVIOUS_LSP_EXAM_DATE.value;}
+    if (!VAR_PREVIOUS_HIP_EXAM_DATE.value)        {VAR_PREVIOUS_HIP_EXAM_DATE.value = VAR_PREVIOUS_LSP_EXAM_DATE.value;}
  
 
 
@@ -605,7 +572,7 @@ function DXA_REPORTING(){
     }
     
     console.log('-- Exam date --');
-    logIDTable(VAR_LSP_EXAM_DATE, VAR_HIP_EXAM_DATE_SELECT, VAR_HIP_EXAM_DATE, VAR_BODY_EXAM_DATE_SELECT, VAR_BODY_EXAM_DATE)
+    logIDTable(VAR_LSP_EXAM_DATE, VAR_HIP_EXAM_DATE, VAR_BODY_EXAM_DATE)
         
     console.log('-- LSP --');
     logCheckTable(VAR_FOV_L1, VAR_FOV_L2, VAR_FOV_L3, VAR_FOV_L4, VAR_FOV);
@@ -632,7 +599,7 @@ function DXA_REPORTING(){
     logIDTable(VAR_PREVIOUS_LSP_EXAM_DATE, VAR_PREVIOUS_LSP_EXAM_LSP_BMD, VAR_DELTA_LSP_BMD, VAR_ABS_DELTA_LSP_BMD); 
     console.log('-- LSC: hips --');
     logCheck(VAR_PREVIOUS_LSP);
-    logIDTable(VAR_PREVIOUS_HIP_EXAM_DATE_SELECT, VAR_PREVIOUS_HIP_EXAM_DATE, VAR_PREVIOUS_HIP_EXAM_LH_BMD, VAR_DELTA_LH_BMD, VAR_ABS_DELTA_LH_BMD, VAR_PREVIOUS_HIP_EXAM_RH_BMD, VAR_DELTA_RH_BMD, VAR_ABS_DELTA_RH_BMD);
+    logIDTable(VAR_PREVIOUS_HIP_EXAM_DATE, VAR_PREVIOUS_HIP_EXAM_LH_BMD, VAR_DELTA_LH_BMD, VAR_ABS_DELTA_LH_BMD, VAR_PREVIOUS_HIP_EXAM_RH_BMD, VAR_DELTA_RH_BMD, VAR_ABS_DELTA_RH_BMD);
     
     console.log('-- LSC data--');
     logID(VAR_LSC_DATA);
@@ -654,9 +621,9 @@ function DXA_REPORTING(){
             DXA_PRETERM_LSP = "lumbar spine";
             if(VAR_LSP_EXAM_DATE.value){
                 DXA_PRETERM_LSP = DXA_PRETERM_LSP + " on " + VAR_LSP_EXAM_DATE.value;
-                if(!VAR_HIP_EXAM_DATE.value){
+/*                if(!VAR_HIP_EXAM_DATE.value){
                     VAR_HIP_EXAM_DATE.value = VAR_LSP_EXAM_DATE.value; // In case of LSP date (O) but hip date (X)
-                }
+                }*/
             }
         }
         else{
@@ -683,6 +650,9 @@ function DXA_REPORTING(){
         else{
         }
     if(DXA_PRETERM_LSP && DXA_PRETERM_HIP){
+        if(VAR_HIP_EXAM_DATE.value == VAR_LSP_EXAM_DATE.value){
+            DXA_PRETERM_LSP = "lumbar spine";
+        }
         DXA_PRETERM = DXA_PRETERM + DXA_PRETERM_LSP + " and " + DXA_PRETERM_HIP + ":<br>";
     }
     else if(DXA_PRETERM_LSP && !DXA_PRETERM_HIP){
@@ -717,29 +687,85 @@ function DXA_REPORTING(){
         
     }
     
-    // LSP FOV & BMD
-    parent.frames['DXA_RESULT'].document.write(VAR_FOV.value+":<br>");
-    parent.frames['DXA_RESULT'].document.write("> Bone mineral density (g/cm2) = " + VAR_LSP_BMD.value + "<br>");
-    // LSP T-score
-    if(!VAR_LSP_TSCORE.value)
-        {
-        parent.frames['DXA_RESULT'].document.write();
-        }
-    else{
-        parent.frames['DXA_RESULT'].document.write("> T-score = ", VAR_LSP_TSCORE.value, "<br>");
+    // LSP reporting
+    if(VAR_LSP_BMD.value){
+        // LSP FOV & BMD
+        parent.frames['DXA_RESULT'].document.write(VAR_FOV.value+":<br>");
+        parent.frames['DXA_RESULT'].document.write("> Bone mineral density (g/cm2) = " + VAR_LSP_BMD.value + "<br>");
+        
+        // LSP T-score        
+        if(VAR_LSP_TSCORE.value){
+            parent.frames['DXA_RESULT'].document.write("> T-score = ", VAR_LSP_TSCORE.value, "<br>");
         }
         
-      // LSP Z-score    
-    if(!VAR_LSP_ZSCORE.value)
-        {
-        parent.frames['DXA_RESULT'].document.write();
+        // LSP Z-score    
+        if(VAR_LSP_ZSCORE.value){
+            parent.frames['DXA_RESULT'].document.write("> Z-score = ", VAR_LSP_ZSCORE.value, "<br>");     
         }
-      else{
-        parent.frames['DXA_RESULT'].document.write("> Z-score = ", VAR_LSP_ZSCORE.value, "<br>");     
+        if(!VAR_LSP_TSCORE.value && !VAR_LSP_ZSCORE.value){
+            alert('Please fill T-score or Z-score of lumbar spine');
+            return false; //debug test
         }
-    parent.frames['DXA_RESULT'].document.write('<br>'); // empty line
+        parent.frames['DXA_RESULT'].document.write('<br>'); // empty line
+    }
+    // Left HIP reporting
+    if(VAR_LH_BMD.value){
+        // LH FOV & BMD
+        parent.frames['DXA_RESULT'].document.write("Left hip:<br>");
+        if(!VAR_LH_OP.checked){
+            parent.frames['DXA_RESULT'].document.write("> Bone mineral density (g/cm2) = " + VAR_LH_BMD.value + "<br>");
+        
+            // LH T-score        
+            if(VAR_LH_TSCORE.value){
+                parent.frames['DXA_RESULT'].document.write("> T-score = ", VAR_LH_TSCORE.value, "<br>");
+            }
+        
+            // LSP Z-score    
+            if(VAR_LH_ZSCORE.value){
+                parent.frames['DXA_RESULT'].document.write("> Z-score = ", VAR_LH_ZSCORE.value, "<br>");
+            }
+            if(!VAR_LH_TSCORE.value && !VAR_LH_ZSCORE.value){
+                alert('Please fill T-score or Z-score of left hip');
+                return false; //debug test
+            }
+        }
+        else{
+            parent.frames['DXA_RESULT'].document.write("> S/p operation.<br>");
+        }
+        parent.frames['DXA_RESULT'].document.write('<br>'); // empty line
+    }
+    // Right HIP reporting
+    if(VAR_RH_BMD.value){
+        // RH FOV & BMD
+        parent.frames['DXA_RESULT'].document.write("Right hip:<br>");
+        if(!VAR_RH_OP.checked){
+            parent.frames['DXA_RESULT'].document.write("> Bone mineral density (g/cm2) = " + VAR_RH_BMD.value + "<br>");
+        
+            // RH T-score        
+            if(VAR_RH_TSCORE.value){
+                parent.frames['DXA_RESULT'].document.write("> T-score = ", VAR_RH_TSCORE.value, "<br>");
+            }
+        
+            // LSP Z-score    
+            if(VAR_RH_ZSCORE.value){
+                parent.frames['DXA_RESULT'].document.write("> Z-score = ", VAR_RH_ZSCORE.value, "<br>");
+            }
+            if(!VAR_RH_TSCORE.value && !VAR_RH_ZSCORE.value){
+                alert('Please fill T-score or Z-score of right hip');
+                return false; //debug test
+            }
+        }
+        else{
+            parent.frames['DXA_RESULT'].document.write("> S/p operation.<br>");
+        }
+        parent.frames['DXA_RESULT'].document.write('<br>'); // empty line
+    }
     
-    //
+    // Exception: VAR_LH_OP.checked && VAR_RH_OP.checked
+    if(VAR_LH_OP.checked && VAR_RH_OP.checked){
+        alert('Do NOT check "Post operation of left hip" and "Post operation of right hip" at the same time!!');
+        return false; //debug test
+    }
     
     
     parent.frames['DXA_RESULT'].document.write('hello world<br>');
