@@ -116,10 +116,12 @@ function DXA_REPORTING(){
         VAR_FOV.value=ARRAY_FOV[0];
         //debug test
         alert("FOV: single vertebrae!");
+        VAR_FOV.single="> According to WHO criteria, data from only single vertebral body is not enough for diagnosis. Please correlate with DXA of hips for clinical diagnosis.";
+        
     }    
     else if(VAR_FOV_L1.checked + VAR_FOV_L2.checked + VAR_FOV_L3.checked + VAR_FOV_L4.checked == 0){
-        //debug test
-        alert("FOV: No vertebrae is selected!");return;
+        alert("FOV: No vertebrae is selected!");
+        //return; //debug test
     }
     else{
     }
@@ -239,13 +241,13 @@ function DXA_REPORTING(){
         eval(
             'if(VAR_FX_T'+i+'.checked){'+
                 'if(VAR_FX_T'+i+'.genant == 1){'+
-                    'VAR_FX_T'+i+'.value= "Genant grade 1 (20% to 25% loss of height) vertebral fracture at " + VAR_FX_T'+i+'.value;}'+
+                    'VAR_FX_T'+i+'.value= "> Genant grade 1 (20% to 25% loss of height) vertebral fracture at " + VAR_FX_T'+i+'.value;}'+
                 'else if(VAR_FX_T'+i+'.genant == 2){'+
-                    'VAR_FX_T'+i+'.value= "Genant grade 2 (25% to 40% loss of height) vertebral fracture at " + VAR_FX_T'+i+'.value;}'+
+                    'VAR_FX_T'+i+'.value= "> Genant grade 2 (25% to 40% loss of height) vertebral fracture at " + VAR_FX_T'+i+'.value;}'+
                 'else if(VAR_FX_T'+i+'.genant == 3){'+
-                    'VAR_FX_T'+i+'.value= "Genant grade 3 (greater than 40% loss of height) vertebral fracture at " + VAR_FX_T'+i+'.value;}'+
+                    'VAR_FX_T'+i+'.value= "> Genant grade 3 (greater than 40% loss of height) vertebral fracture at " + VAR_FX_T'+i+'.value;}'+
                 'else{'+
-                    'VAR_FX_T'+i+'.value= "Vertebral fracture at " + VAR_FX_T'+i+'.value;}'+
+                    'VAR_FX_T'+i+'.value= "> Vertebral fracture at " + VAR_FX_T'+i+'.value;}'+
                 'if(VAR_FX_T'+i+'.fix_checked && VAR_FX_T'+i+'.vp_checked){'+
                     'VAR_FX_T'+i+'.value= VAR_FX_T'+i+'.value + ", S/p fixation and vertebroplasty";}'+
                 'else if(VAR_FX_T'+i+'.fix_checked){'+
@@ -284,13 +286,13 @@ function DXA_REPORTING(){
         eval(
             'if(VAR_FX_L'+i+'.checked){'+
                 'if(VAR_FX_L'+i+'.genant == 1){'+
-                    'VAR_FX_L'+i+'.value= "Genant grade 1 (20% to 25% loss of height) vertebral fracture at " + VAR_FX_L'+i+'.value;}'+
+                    'VAR_FX_L'+i+'.value= "> Genant grade 1 (20% to 25% loss of height) vertebral fracture at " + VAR_FX_L'+i+'.value;}'+
                 'else if(VAR_FX_L'+i+'.genant == 2){'+
-                    'VAR_FX_L'+i+'.value= "Genant grade 2 (25% to 40% loss of height) vertebral fracture at " + VAR_FX_L'+i+'.value;}'+
+                    'VAR_FX_L'+i+'.value= "> Genant grade 2 (25% to 40% loss of height) vertebral fracture at " + VAR_FX_L'+i+'.value;}'+
                 'else if(VAR_FX_L'+i+'.genant == 3){'+
-                    'VAR_FX_L'+i+'.value= "Genant grade 3 (greater than 40% loss of height) vertebral fracture at " + VAR_FX_L'+i+'.value;}'+
+                    'VAR_FX_L'+i+'.value= "> Genant grade 3 (greater than 40% loss of height) vertebral fracture at " + VAR_FX_L'+i+'.value;}'+
                 'else{'+
-                    'VAR_FX_L'+i+'.value= "Vertebral fracture at " + VAR_FX_L'+i+'.value;}'+
+                    'VAR_FX_L'+i+'.value= "> Vertebral fracture at " + VAR_FX_L'+i+'.value;}'+
                 'if(VAR_FX_L'+i+'.fix_checked && VAR_FX_L'+i+'.vp_checked){'+
                     'VAR_FX_L'+i+'.value= VAR_FX_L'+i+'.value + ", S/p fixation and vertebroplasty";}'+
                 'else if(VAR_FX_L'+i+'.fix_checked){'+
@@ -607,7 +609,7 @@ function DXA_REPORTING(){
         
     console.log('-- LSP --');
     logCheckTable(VAR_FOV_L1, VAR_FOV_L2, VAR_FOV_L3, VAR_FOV_L4, VAR_FOV);
-    logIDTable(VAR_LSP_EXAM_DATE, VAR_LSP_BMD, VAR_LSP_TSCORE, VAR_LSP_ZSCORE);
+    logIDTable(VAR_LSP_BMD, VAR_LSP_TSCORE, VAR_LSP_ZSCORE);
     
     console.log('-- LSP FX variants --');
     logFXTable(VAR_FX_T1, VAR_FX_T2, VAR_FX_T3, VAR_FX_T4, VAR_FX_T5, VAR_FX_T6, VAR_FX_T7, VAR_FX_T8, VAR_FX_T9, VAR_FX_T10, VAR_FX_T11, VAR_FX_T12, VAR_FX_L1, VAR_FX_L2, VAR_FX_L3, VAR_FX_L4, VAR_FX_L5);
@@ -645,7 +647,99 @@ function DXA_REPORTING(){
 	parent.frames['DXA_RESULT'].document.write('</script></head>');
 	parent.frames['DXA_RESULT'].document.write('<body bgcolor=bisque>');
     
+    // DXA perterm
+    var DXA_PRETERM = "Dual-energy X-ray absorptiometry of ";
+    var DXA_PRETERM_LSP;
+        if(VAR_LSP_BMD.value){
+            DXA_PRETERM_LSP = "lumbar spine";
+            if(VAR_LSP_EXAM_DATE.value){
+                DXA_PRETERM_LSP = DXA_PRETERM_LSP + " on " + VAR_LSP_EXAM_DATE.value;
+                if(!VAR_HIP_EXAM_DATE.value){
+                    VAR_HIP_EXAM_DATE.value = VAR_LSP_EXAM_DATE.value; // In case of LSP date (O) but hip date (X)
+                }
+            }
+        }
+        else{
+        }
+    var DXA_PRETERM_HIP;
+        if(VAR_LH_BMD.value && VAR_RH_BMD.value){
+            DXA_PRETERM_HIP = "bilateral hips";
+            if(VAR_HIP_EXAM_DATE.value){
+                DXA_PRETERM_HIP = DXA_PRETERM_HIP + " on " + VAR_HIP_EXAM_DATE.value;
+            }
+        }
+        else if(VAR_LH_BMD.value && !VAR_RH_BMD.value){
+            DXA_PRETERM_HIP = "left hip";
+            if(VAR_HIP_EXAM_DATE.value){
+                DXA_PRETERM_HIP = DXA_PRETERM_HIP + " on " + VAR_HIP_EXAM_DATE.value;
+            }
+        }
+        else if(!VAR_LH_BMD.value && VAR_RH_BMD.value){
+            DXA_PRETERM_HIP = "right hip";
+            if(VAR_HIP_EXAM_DATE.value){
+                DXA_PRETERM_HIP = DXA_PRETERM_HIP + " on " + VAR_HIP_EXAM_DATE.value;
+            }
+        }
+        else{
+        }
+    if(DXA_PRETERM_LSP && DXA_PRETERM_HIP){
+        DXA_PRETERM = DXA_PRETERM + DXA_PRETERM_LSP + " and " + DXA_PRETERM_HIP + ":<br>";
+    }
+    else if(DXA_PRETERM_LSP && !DXA_PRETERM_HIP){
+        DXA_PRETERM = DXA_PRETERM + DXA_PRETERM_LSP + ":<br>";
+    }
+    else if(!DXA_PRETERM_LSP && DXA_PRETERM_HIP){
+        DXA_PRETERM = DXA_PRETERM + DXA_PRETERM_HIP + ":<br>";
+    }
+    else{
+        alert('Please input BMD of lumbar spine & hips');
+        // return;  //Debug test
+    }
+    parent.frames['DXA_RESULT'].document.write(DXA_PRETERM+"<br>");
     
+    // VFA
+    if(VAR_VFA.checked){
+        parent.frames['DXA_RESULT'].document.write(VAR_VFA.value+"<br>");
+        if(!VAR_NO_FX.checked && !VAR_FX.checked){
+            parent.frames['DXA_RESULT'].document.write("> There is no significant evidence of vertebral fracture.<br>");
+        }
+        else{
+            if(VAR_NO_FX.checked){
+                parent.frames['DXA_RESULT'].document.write(VAR_NO_FX.value);
+            }
+            if(VAR_FX.checked){
+                parent.frames['DXA_RESULT'].document.write(VAR_FX.value);
+            }            
+        }
+        parent.frames['DXA_RESULT'].document.write("<br>");
+    }
+    else{
+        
+    }
+    
+    // LSP FOV & BMD
+    parent.frames['DXA_RESULT'].document.write(VAR_FOV.value+":<br>");
+    parent.frames['DXA_RESULT'].document.write("> Bone mineral density (g/cm2) = " + VAR_LSP_BMD.value + "<br>");
+    // LSP T-score
+    if(!VAR_LSP_TSCORE.value)
+        {
+        parent.frames['DXA_RESULT'].document.write();
+        }
+    else{
+        parent.frames['DXA_RESULT'].document.write("> T-score = ", VAR_LSP_TSCORE.value, "<br>");
+        }
+        
+      // LSP Z-score    
+    if(!VAR_LSP_ZSCORE.value)
+        {
+        parent.frames['DXA_RESULT'].document.write();
+        }
+      else{
+        parent.frames['DXA_RESULT'].document.write("> Z-score = ", VAR_LSP_ZSCORE.value, "<br>");     
+        }
+    parent.frames['DXA_RESULT'].document.write('<br>'); // empty line
+    
+    //
     
     
     parent.frames['DXA_RESULT'].document.write('hello world<br>');
@@ -660,6 +754,5 @@ function DXA_REPORTING(){
 
     
 
-  
 
 }
