@@ -100,46 +100,7 @@ function DXA_REPORTING(){
 
 /* LSP fracture variants */  
     var VAR_VFA=document.getElementById("VFA");
-    
 
-/*    
-    var VAR_FX_L5 = {
-            "id" : document.getElementById("FX_L5").id,
-            "value" : document.getElementById("FX_L5").value,
-            "checked" : document.getElementById("FX_L5").checked,
-            "genant" : "",
-            "fix_checked" : document.getElementById("FX_L5_FIX").checked,
-            "fix_value" : document.getElementById("FX_L5_FIX").value,
-            "vp_checked" : document.getElementById("FX_L5_VP").checked,
-            "vp_value" : document.getElementById("FX_L5_VP").value
-        };
-
-    var ARRAY_FX_L5_GENANT = document.getElementsByName("FX_L5_GENANT");
-       for(var i = 0; i < ARRAY_FX_L5_GENANT.length; i++){
-            if(ARRAY_FX_L5_GENANT[i].checked){VAR_FX_L5.genant = ARRAY_FX_L5_GENANT[i].value;}
-       }
-*/    
-/*
-    var VAR_FX_L5=document.getElementById("FX_L5");
-    var VAR_FX_L4=document.getElementById("FX_L4");
-    var VAR_FX_L3=document.getElementById("FX_L3");
-    var VAR_FX_L2=document.getElementById("FX_L2");
-    var VAR_FX_L1=document.getElementById("FX_L1");
-    var VAR_FX_T12=document.getElementById("FX_T12");
-    var VAR_FX_T11=document.getElementById("FX_T11");
-    var VAR_FX_T10=document.getElementById("FX_T10");
-    var VAR_FX_T9=document.getElementById("FX_T9");
-    var VAR_FX_T8=document.getElementById("FX_T8");
-    var VAR_FX_T7=document.getElementById("FX_T7");
-    var VAR_FX_T6=document.getElementById("FX_T6");
-    var VAR_FX_T5=document.getElementById("FX_T5");
-    var VAR_FX_T4=document.getElementById("FX_T4");
-    var VAR_FX_T3=document.getElementById("FX_T3");
-    var VAR_FX_T2=document.getElementById("FX_T2");
-    var VAR_FX_T1=document.getElementById("FX_T1");
-*/
-
-    
     for(var i = 1; i < 6; i++){
         eval(
             'var VAR_FX_L'+i+' = {' +
@@ -294,60 +255,7 @@ function DXA_REPORTING(){
         );
     }
 
-    
-/*      
-    if(VAR_FX_T1.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_T1.value+"<br>";}
-    else{}
-    if(VAR_FX_T2.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_T2.value+"<br>";}
-    else{}
-    if(VAR_FX_T3.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_T3.value+"<br>";}
-    else{}
-    if(VAR_FX_T4.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_T4.value+"<br>";}
-    else{}
-    if(VAR_FX_T5.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_T5.value+"<br>";}
-    else{}
-    if(VAR_FX_T6.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_T6.value+"<br>";}
-    else{}
-    if(VAR_FX_T7.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_T7.value+"<br>";}
-    else{}
-    if(VAR_FX_T8.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_T8.value+"<br>";}
-    else{}
-    if(VAR_FX_T9.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_T9.value+"<br>";}
-    else{}
-    if(VAR_FX_T10.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_T10.value+"<br>";}
-    else{}
-    if(VAR_FX_T11.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_T11.value+"<br>";}
-    else{}
-    if(VAR_FX_T12.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_T12.value+"<br>";}
-    else{}
-    if(VAR_FX_L1.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_L1.value+"<br>";}
-    else{}
-    if(VAR_FX_L2.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_L2.value+"<br>";}
-    else{}
-    if(VAR_FX_L3.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_L3.value+"<br>";}
-    else{}
-    if(VAR_FX_L4.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_L4.value+"<br>";}
-    else{}
-    if(VAR_FX_L5.checked)
-      {VAR_FX.checked = true;VAR_FX.value=VAR_FX.value+VAR_FX_L5.value+"<br>";}
-    else{}   
-*/
+
     // Grade 3 cannot be sure
     if(VAR_G3_NOT_SURE.checked == true && !VAR_LSP_TSCORE.value)
           {
@@ -383,10 +291,20 @@ function DXA_REPORTING(){
     var VAR_LH_TSCORE=document.getElementById("LH_TSCORE");
     var VAR_LH_ZSCORE=document.getElementById("LH_ZSCORE");
     var VAR_LH_OP=document.getElementById("LH_OP");
+        if(VAR_LH_OP.checked){
+            VAR_LH_BMD.value="";
+            VAR_LH_TSCORE.value="";
+            VAR_LH_ZSCORE.value="";
+        }
     var VAR_RH_BMD=document.getElementById("RH_BMD");
     var VAR_RH_TSCORE=document.getElementById("RH_TSCORE");
     var VAR_RH_ZSCORE=document.getElementById("RH_ZSCORE");
     var VAR_RH_OP=document.getElementById("RH_OP");
+        if(VAR_RH_OP.checked){
+            VAR_RH_BMD.value="";
+            VAR_RH_TSCORE.value="";
+            VAR_RH_ZSCORE.value="";
+        }
 
 /* Body variants */    
     var VAR_BODY_BMD=document.getElementById("BODY_BMD");
@@ -413,7 +331,37 @@ function DXA_REPORTING(){
     var VAR_BODY_RLLM_KG=document.getElementById("BODY_RLLM_KG");    
     var VAR_BODY_HEIGHT_CM=document.getElementById("BODY_HEIGHT_CM");
     var VAR_BODY_HEIGHT_M=document.getElementById("BODY_HEIGHT_M");
-        
+
+/* Grading */
+/*    Array.prototype.min = function () { 
+        var min = this[0]; 
+        for (var i = 1; i < this.length; i++) { 
+            if (this[i] < min){ min = this[i];}
+        } 
+    };
+    var VAR_TSCORE_LOWEST={
+        "id" : "TSCORE_LOWEST",
+        "value" : ""
+    };
+    
+    var ARRAY_TSCORE_LOWEST=new Array();
+    if(VAR_LSP_TSCORE.value){ARRAY_TSCORE_LOWEST.push(VAR_LSP_TSCORE.value);}
+    if(VAR_LH_TSCORE.value){ARRAY_TSCORE_LOWEST.push(VAR_LH_TSCORE.value);}
+    if(VAR_RH_TSCORE.value){ARRAY_TSCORE_LOWEST.push(VAR_RH_TSCORE.value);}
+    VAR_TSCORE_LOWEST.value=ARRAY_TSCORE_LOWEST.min();
+    parent.frames['DXA_RESULT'].document.write('ARRAY_TSCORE_LOWEST[0] =' + ARRAY_TSCORE_LOWEST[0]);
+    
+    var VAR_ZSCORE_LOWEST={
+        "id" : "ZSCORE_LOWEST",
+        "value" : ""
+    };    
+    var ARRAY_ZSCORE_LOWEST=new Array();
+    if(VAR_LSP_ZSCORE.value){ARRAY_ZSCORE_LOWEST.push(VAR_LSP_ZSCORE.value);}
+    if(VAR_LH_ZSCORE.value){ARRAY_ZSCORE_LOWEST.push(VAR_LH_ZSCORE.value);}
+    if(VAR_RH_ZSCORE.value){ARRAY_ZSCORE_LOWEST.push(VAR_RH_ZSCORE.value);}
+    VAR_ZSCORE_LOWEST.value=ARRAY_ZSCORE_LOWEST.min();
+*/
+    
 /* LSC */
     // LSC: LSP
     var VAR_PREVIOUS_LSP=document.getElementById("PREVIOUS_LSP");
@@ -482,7 +430,7 @@ function DXA_REPORTING(){
     var VAR_LSC_LH;
     
     if(VAR_LSC_CHOICE.value == "OTHERS"){
-        if(VAR_LSC_OTHER.value == "hospital name"){
+        if(!VAR_LSC_OTHER.value){
             alert('Please input hospital name!!');return;
         }
         else{
@@ -550,6 +498,10 @@ function DXA_REPORTING(){
             "value" : VAR_LSC_LH_VGHTPE.value
         };    
     }
+
+/* Data validation for input variants */
+    // number validation
+    
     
 /* Console log for variants */    
 
@@ -587,8 +539,11 @@ function DXA_REPORTING(){
     console.log('-- HIP --');
     logIDTable(VAR_LH_BMD, VAR_LH_TSCORE, VAR_LH_ZSCORE, VAR_RH_BMD, VAR_RH_TSCORE, VAR_RH_ZSCORE);
     logCheckTable(VAR_LH_OP,VAR_RH_OP);
-      
-    console.log('-- body --');
+    
+    console.log('-- Grading --');
+//    logIDTable(VAR_TSCORE_LOWEST, VAR_ZSCORE_LOWEST);
+    
+    console.log('-- BODY --');
     logIDTable(VAR_BODY_BMD, VAR_BODY_TSCORE, VAR_BODY_ZSCORE);
     logCheck(VAR_BODY_MUSCLE);
     logID(VAR_BODY_SEX);
@@ -608,11 +563,11 @@ function DXA_REPORTING(){
 
 /* DXA reporting */    
     parent.frames['DXA_RESULT'].document.open(); 
-	parent.frames['DXA_RESULT'].document.write('<html>');
-	parent.frames['DXA_RESULT'].document.write('<head><script>');
-	
-	parent.frames['DXA_RESULT'].document.write('</script></head>');
-	parent.frames['DXA_RESULT'].document.write('<body bgcolor=bisque>');
+    parent.frames['DXA_RESULT'].document.write('<html>');
+    parent.frames['DXA_RESULT'].document.write('<head><script>');
+    
+    parent.frames['DXA_RESULT'].document.write('</script></head>');
+    parent.frames['DXA_RESULT'].document.write('<body bgcolor=bisque>');
     
     // DXA perterm
     var DXA_PRETERM = "Dual-energy X-ray absorptiometry of ";
@@ -621,9 +576,6 @@ function DXA_REPORTING(){
             DXA_PRETERM_LSP = "lumbar spine";
             if(VAR_LSP_EXAM_DATE.value){
                 DXA_PRETERM_LSP = DXA_PRETERM_LSP + " on " + VAR_LSP_EXAM_DATE.value;
-/*                if(!VAR_HIP_EXAM_DATE.value){
-                    VAR_HIP_EXAM_DATE.value = VAR_LSP_EXAM_DATE.value; // In case of LSP date (O) but hip date (X)
-                }*/
             }
         }
         else{
@@ -663,7 +615,7 @@ function DXA_REPORTING(){
     }
     else{
         alert('Please input BMD of lumbar spine & hips');
-        // return;  //Debug test
+        // return false;  //Debug test
     }
     parent.frames['DXA_RESULT'].document.write(DXA_PRETERM+"<br>");
     
@@ -766,6 +718,8 @@ function DXA_REPORTING(){
         alert('Do NOT check "Post operation of left hip" and "Post operation of right hip" at the same time!!');
         return false; //debug test
     }
+    // Conclusion
+    parent.frames['DXA_RESULT'].document.write('CONCLUSION:<br>');
     
     
     parent.frames['DXA_RESULT'].document.write('hello world<br>');
