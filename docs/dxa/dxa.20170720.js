@@ -333,12 +333,6 @@ function DXA_REPORTING(){
     var VAR_BODY_HEIGHT_M=document.getElementById("BODY_HEIGHT_M");
 
 /* Grading */
-/*    Array.prototype.min = function () { 
-        var min = this[0]; 
-        for (var i = 1; i < this.length; i++) { 
-            if (this[i] < min){ min = this[i];}
-        } 
-    };
     var VAR_TSCORE_LOWEST={
         "id" : "TSCORE_LOWEST",
         "value" : ""
@@ -348,8 +342,12 @@ function DXA_REPORTING(){
     if(VAR_LSP_TSCORE.value){ARRAY_TSCORE_LOWEST.push(VAR_LSP_TSCORE.value);}
     if(VAR_LH_TSCORE.value){ARRAY_TSCORE_LOWEST.push(VAR_LH_TSCORE.value);}
     if(VAR_RH_TSCORE.value){ARRAY_TSCORE_LOWEST.push(VAR_RH_TSCORE.value);}
-    VAR_TSCORE_LOWEST.value=ARRAY_TSCORE_LOWEST.min();
-    parent.frames['DXA_RESULT'].document.write('ARRAY_TSCORE_LOWEST[0] =' + ARRAY_TSCORE_LOWEST[0]);
+    ARRAY_TSCORE_LOWEST.sort(
+        function (a,b){
+            return a - b;
+        }
+    )
+    VAR_TSCORE_LOWEST.value=ARRAY_TSCORE_LOWEST[0];    
     
     var VAR_ZSCORE_LOWEST={
         "id" : "ZSCORE_LOWEST",
@@ -359,8 +357,13 @@ function DXA_REPORTING(){
     if(VAR_LSP_ZSCORE.value){ARRAY_ZSCORE_LOWEST.push(VAR_LSP_ZSCORE.value);}
     if(VAR_LH_ZSCORE.value){ARRAY_ZSCORE_LOWEST.push(VAR_LH_ZSCORE.value);}
     if(VAR_RH_ZSCORE.value){ARRAY_ZSCORE_LOWEST.push(VAR_RH_ZSCORE.value);}
-    VAR_ZSCORE_LOWEST.value=ARRAY_ZSCORE_LOWEST.min();
-*/
+    ARRAY_ZSCORE_LOWEST.sort(
+        function (a,b){
+            return a - b;
+        }
+    )
+    VAR_ZSCORE_LOWEST.value=ARRAY_ZSCORE_LOWEST[0];
+
     
 /* LSC */
     // LSC: LSP
@@ -541,7 +544,7 @@ function DXA_REPORTING(){
     logCheckTable(VAR_LH_OP,VAR_RH_OP);
     
     console.log('-- Grading --');
-//    logIDTable(VAR_TSCORE_LOWEST, VAR_ZSCORE_LOWEST);
+    logIDTable(VAR_TSCORE_LOWEST, VAR_ZSCORE_LOWEST);
     
     console.log('-- BODY --');
     logIDTable(VAR_BODY_BMD, VAR_BODY_TSCORE, VAR_BODY_ZSCORE);
