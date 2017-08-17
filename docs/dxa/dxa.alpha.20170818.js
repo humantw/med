@@ -1071,12 +1071,12 @@ function DXA_REPORTING() {
             //Debug test
         }
     
-        if (LSC_PRETERM.checked) {
+        if (LSC_PRETERM.checked && VAR_LSC_DATA.checked) {
             parent.frames['DXA_RESULT'].document.write(LSC_PRETERM.value+"<br>");
         }
     
         // LSC: content
-        if (VAR_LSP_BMD.value && LSC_PRETERM_LSP){
+        if (VAR_LSP_BMD.value && LSC_PRETERM_LSP && VAR_LSC_DATA.checked){
             parent.frames['DXA_RESULT'].document.write("LUMBAR SPINE:<br>");
             parent.frames['DXA_RESULT'].document.write("> Bone mineral density (g/cm2) = " + VAR_PREVIOUS_LSP_EXAM_LSP_BMD.value + "<br>");
             parent.frames['DXA_RESULT'].document.write("> The BMD change of lumbar spine is ");
@@ -1094,7 +1094,7 @@ function DXA_REPORTING() {
                 parent.frames['DXA_RESULT'].document.write("no significant change.<br><br>");
             }
         }
-        if (VAR_LH_BMD.value && LSC_PRETERM_HIP){
+        if (VAR_LH_BMD.value && LSC_PRETERM_HIP && VAR_LSC_DATA.checked){
             parent.frames['DXA_RESULT'].document.write("LEFT HIP:<br>");
             parent.frames['DXA_RESULT'].document.write("> Bone mineral density (g/cm2) = " + VAR_PREVIOUS_HIP_EXAM_LH_BMD.value + "<br>");
             parent.frames['DXA_RESULT'].document.write("> The BMD change of left hip is ");
@@ -1112,7 +1112,7 @@ function DXA_REPORTING() {
                 parent.frames['DXA_RESULT'].document.write("no significant change.<br><br>");
             }
         }
-        if (VAR_RH_BMD.value && LSC_PRETERM_HIP){
+        if (VAR_RH_BMD.value && LSC_PRETERM_HIP && VAR_LSC_DATA.checked){
             parent.frames['DXA_RESULT'].document.write("RIGHT HIP:<br>");
             parent.frames['DXA_RESULT'].document.write("> Bone mineral density (g/cm2) = " + VAR_PREVIOUS_HIP_EXAM_RH_BMD.value + "<br>");
             parent.frames['DXA_RESULT'].document.write("> The BMD change of right hip is ");
@@ -1132,7 +1132,7 @@ function DXA_REPORTING() {
         }    
     
         // LSC: remark 
-        if (LSC_PRETERM.checked) {
+        if (LSC_PRETERM.checked && VAR_LSC_DATA.checked) {
             parent.frames['DXA_RESULT'].document.write(
             //"--<br><br>"+
             "REMARK:<br>"+
