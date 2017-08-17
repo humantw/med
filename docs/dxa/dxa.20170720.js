@@ -1157,7 +1157,7 @@ function DXA_REPORTING() {
     // DXA body: preterm
     if (DXA_BODY_PRETERM.checked) {
         if (VAR_BODY_EXAM_DATE.value) {
-            DXA_BODY_PRETERM.value = DXA_BODY_PRETERM.value + " on " + VAR_BODY_EXAM_DATE + ":<br><br>";
+            DXA_BODY_PRETERM.value = DXA_BODY_PRETERM.value + " on " + VAR_BODY_EXAM_DATE.value + ":<br><br>";
         }
         else {
             DXA_BODY_PRETERM.value = DXA_BODY_PRETERM.value + ":<br><br>";
@@ -1176,7 +1176,7 @@ function DXA_REPORTING() {
             alert('Please fill T-score or Z-score of DXA of total body!!');
             return false;
         }
-        parent.frames['DXA_RESULT'].document.write("> This data is for your reference and study. Please check DXA of spine or hips for clinical diagnosis.<br><br>");
+        parent.frames['DXA_RESULT'].document.write("> This data is for your reference and study. Please check DXA of spine or hips for clinical diagnosis.<br>");
 
     // DXA body: muscle mass measurement
         if (VAR_BODY_MUSCLE.checked) {
