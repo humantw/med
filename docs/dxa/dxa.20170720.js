@@ -30,7 +30,7 @@ function DXA_REPORTING() {
    
     //BODY_EXAM_DATE
     var VAR_BODY_EXAM_DATE=document.getElementById("BODY_EXAM_DATE");
-    if (VAR_BODY_EXAM_DATE.value) {VAR_BODY_EXAM_DATE.value = VAR_LSP_EXAM_DATE.value;}
+    if (!VAR_BODY_EXAM_DATE.value) {VAR_BODY_EXAM_DATE.value = VAR_LSP_EXAM_DATE.value;}
     
     //PREVIOUS_EXAM_DATE
     var VAR_PREVIOUS_LSP_EXAM_DATE=document.getElementById("PREVIOUS_LSP_EXAM_DATE");
@@ -1134,7 +1134,7 @@ function DXA_REPORTING() {
         // LSC: remark 
         if (LSC_PRETERM.checked) {
             parent.frames['DXA_RESULT'].document.write(
-            "--<br><br>"+
+            //"--<br><br>"+
             "REMARK:<br>"+
             "The least significant change (LSC) is the least amount of BMD change that can be considered statistically significant. The LSC data in " + VAR_LSC_HOSPITAL.value + " are listed below:<br>"+
             "> lumbar spine: "+ VAR_LSC_LSP.value +" g/cm2<br>"+
@@ -1180,7 +1180,9 @@ function DXA_REPORTING() {
 
     // DXA body: muscle mass measurement
         if (VAR_BODY_MUSCLE.checked) {
-            parent.frames['DXA_RESULT'].document.write("<br>--<br>MUSCLE MASS MEASUREMENT:<br>");
+            parent.frames['DXA_RESULT'].document.write("<br>");
+//            parent.frames['DXA_RESULT'].document.write("--<br><br>");
+            parent.frames['DXA_RESULT'].document.write("MUSCLE MASS MEASUREMENT:<br>");
             parent.frames['DXA_RESULT'].document.write("> Lean mass of left arm (Kg)  = ", VAR_BODY_LALM_KG.value, "<br>"); 
             parent.frames['DXA_RESULT'].document.write("> Lean mass of right arm (Kg) = ", VAR_BODY_RALM_KG.value, "<br>"); 
             parent.frames['DXA_RESULT'].document.write("> Lean mass of left leg (Kg)  = ", VAR_BODY_LLLM_KG.value, "<br>"); 
