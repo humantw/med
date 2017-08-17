@@ -1209,7 +1209,8 @@ function DXA_REPORTING() {
             }
             
             parent.frames['DXA_RESULT'].document.write(
-                //"<br>--<br><br>",
+                "<br>",
+                //"--<br><br>",
                 "REMARK:<br>",
                 "> Appendicular skeletal mass (ASM) = the sum of the muscle masses of the four limbs.<br>",
                 "> ASM index (Kg / m^2) = ASM / height^2<br>",
