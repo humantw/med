@@ -19,6 +19,15 @@ function HideRH() {
     }
     document.getElementById("DIV_RH").style.display = vis;
 }
+function ClearAllInputs() {
+    document.getElementById('DXA_LSP').reset();
+    document.getElementById('DXA_HIP').reset();
+    document.getElementById('DXA_BODY').reset();
+    document.getElementById("VFA_TABLE").style.display = "none";
+    document.getElementById("DIV_LH").style.display = "block";
+    document.getElementById("DIV_RH").style.display = "block";
+    
+}
 function DXA_REPORTING() {
 /* Exam Date variants */
     //LSP_EXAM_DATE
@@ -62,19 +71,19 @@ function DXA_REPORTING() {
         for(var i = 1; i < 5; i++) {
             eval('if (VAR_FOV_L'+i+'.checked) {ARRAY_FOV.push(VAR_FOV_L'+i+'.value);}');
         }
-        VAR_FOV.value=ARRAY_FOV[0] + "," + ARRAY_FOV[1] + "," +ARRAY_FOV[2] + "," + ARRAY_FOV[3];
+        VAR_FOV.value=ARRAY_FOV[0] + ", " + ARRAY_FOV[1] + ", " +ARRAY_FOV[2] + ", " + ARRAY_FOV[3];
     }
     else if (VAR_FOV_L1.checked + VAR_FOV_L2.checked + VAR_FOV_L3.checked + VAR_FOV_L4.checked == 3) {
         for(var i = 1; i < 5; i++) {
             eval('if (VAR_FOV_L'+i+'.checked) {ARRAY_FOV.push(VAR_FOV_L'+i+'.value);}');            
         }
-        VAR_FOV.value=ARRAY_FOV[0] + "," + ARRAY_FOV[1] + "," +ARRAY_FOV[2];        
+        VAR_FOV.value=ARRAY_FOV[0] + ", " + ARRAY_FOV[1] + ", " +ARRAY_FOV[2];        
     }
     else if (VAR_FOV_L1.checked + VAR_FOV_L2.checked + VAR_FOV_L3.checked + VAR_FOV_L4.checked == 2) {
         for(var i = 1; i < 5; i++) {
             eval('if (VAR_FOV_L'+i+'.checked) {ARRAY_FOV.push(VAR_FOV_L'+i+'.value);}');            
         }
-        VAR_FOV.value=ARRAY_FOV[0] + "," + ARRAY_FOV[1];
+        VAR_FOV.value=ARRAY_FOV[0] + ", " + ARRAY_FOV[1];
     }
     else if (VAR_FOV_L1.checked + VAR_FOV_L2.checked + VAR_FOV_L3.checked + VAR_FOV_L4.checked == 1) {
         for(var i = 1; i < 5; i++) {
@@ -314,7 +323,7 @@ function DXA_REPORTING() {
     var VAR_BODY_LALM_G=document.getElementById("BODY_LALM_G");
     var VAR_BODY_LALM_KG=document.getElementById("BODY_LALM_KG");
         if (VAR_BODY_LALM_G.value && VAR_BODY_LALM_KG.value) {
-            if (VAR_BODY_LALM_G.value != 1000 * VAR_BODY_LALM_KG.value) {
+            if (Math.round(VAR_BODY_LALM_G.value * 10) != Math.round(10000 * VAR_BODY_LALM_KG.value)) {
                 alert('Wrong value of left arm lean mass');return false;
             }            
         }
@@ -331,7 +340,7 @@ function DXA_REPORTING() {
     var VAR_BODY_RALM_G=document.getElementById("BODY_RALM_G");
     var VAR_BODY_RALM_KG=document.getElementById("BODY_RALM_KG");
         if (VAR_BODY_RALM_G.value && VAR_BODY_RALM_KG.value) {
-            if (VAR_BODY_RALM_G.value != 1000 * VAR_BODY_RALM_KG.value) {
+            if (Math.round(VAR_BODY_RALM_G.value * 10) != Math.round(10000 * VAR_BODY_RALM_KG.value)) {
                 alert('Wrong value of right arm lean mass');return false;
             }            
         }
@@ -348,7 +357,7 @@ function DXA_REPORTING() {
     var VAR_BODY_LLLM_G=document.getElementById("BODY_LLLM_G");
     var VAR_BODY_LLLM_KG=document.getElementById("BODY_LLLM_KG");
         if (VAR_BODY_LLLM_G.value && VAR_BODY_LLLM_KG.value) {
-            if (VAR_BODY_LLLM_G.value != 1000 * VAR_BODY_LLLM_KG.value) {
+            if (Math.round(VAR_BODY_LLLM_G.value * 10) != Math.round(10000 * VAR_BODY_LLLM_KG.value)) {
                 alert('Wrong value of left leg lean mass');return false;
             } 
         }
@@ -365,7 +374,7 @@ function DXA_REPORTING() {
     var VAR_BODY_RLLM_G=document.getElementById("BODY_RLLM_G");
     var VAR_BODY_RLLM_KG=document.getElementById("BODY_RLLM_KG");
         if (VAR_BODY_RLLM_G.value && VAR_BODY_RLLM_KG.value) {
-            if (VAR_BODY_RLLM_G.value != 1000 * VAR_BODY_RLLM_KG.value) {
+            if (Math.round(VAR_BODY_RLLM_G.value * 10) != Math.round(10000 * VAR_BODY_RLLM_KG.value)) {
                 alert('Wrong value of right leg lean mass');return false;
             } 
         }
@@ -382,7 +391,7 @@ function DXA_REPORTING() {
     var VAR_BODY_HEIGHT_CM=document.getElementById("BODY_HEIGHT_CM");
     var VAR_BODY_HEIGHT_M=document.getElementById("BODY_HEIGHT_M");
         if (VAR_BODY_HEIGHT_CM.value && VAR_BODY_HEIGHT_M.value) {
-            if (VAR_BODY_HEIGHT_CM.value != 100 * VAR_BODY_HEIGHT_M.value) {
+            if (Math.round(VAR_BODY_HEIGHT_CM.value *10) != Math.round(1000 * VAR_BODY_HEIGHT_M.value)) {
                 alert('Wrong value of body height');return false;
             } 
         }
@@ -588,12 +597,15 @@ function DXA_REPORTING() {
         }
         if (VAR_LOWEST_TSCORE.value  >= -1.0) {
             VAR_G0MP.checked = true;
+            VAR_SGCC.checked = true;
         }
         else if (VAR_LOWEST_TSCORE.value  > -2.5 && VAR_LOWEST_TSCORE.value < -1) {
             VAR_G1MP.checked = true;
+            VAR_SGCC.checked = true;
         }
         else if (VAR_LOWEST_TSCORE.value  <= -2.5) {
             VAR_G2MP.checked = true;
+            VAR_SGCC.checked = true;
         }
         else {
         }
@@ -603,12 +615,14 @@ function DXA_REPORTING() {
                 VAR_G1MP.checked = false;
                 VAR_G2MP.checked = false;
                 VAR_G3_NOT_SURE.checked = true;
+                VAR_SGCC.checked = true;
             }
             else {
                 VAR_G0MP.checked = false;
                 VAR_G1MP.checked = false;
                 VAR_G2MP.checked = false;
                 VAR_G3MP.checked = true;
+                VAR_SGCC.checked = true;
             }
         }
     }
@@ -640,12 +654,14 @@ function DXA_REPORTING() {
                 VAR_G1.checked = false;
                 VAR_G2.checked = false;
                 VAR_G3_NOT_SURE.checked = true;
+                VAR_SGCC.checked = true;
             }
             else {
                 VAR_G0.checked = false;
                 VAR_G1.checked = false;
                 VAR_G2.checked = false;
                 VAR_G3.checked = true;
+                VAR_SGCC.checked = true;
             }
         }
     }
@@ -931,6 +947,10 @@ function DXA_REPORTING() {
             }
             parent.frames['DXA_RESULT'].document.write('<br>'); // empty line
         }
+        if (VAR_LH_OP.checked) {
+            parent.frames['DXA_RESULT'].document.write("LEFT HIP:<br>");
+            parent.frames['DXA_RESULT'].document.write("> S/p operation.<br><br>");
+        }
         // Right HIP reporting
         if (VAR_RH_BMD.value) {
             // RH FOV & BMD
@@ -957,7 +977,10 @@ function DXA_REPORTING() {
             }
             parent.frames['DXA_RESULT'].document.write('<br>'); // empty line
         }
-    
+        if (VAR_RH_OP.checked) {
+            parent.frames['DXA_RESULT'].document.write("RIGHT HIP:<br>");
+            parent.frames['DXA_RESULT'].document.write("> S/p operation.<br><br>");
+        }
         // Exception: VAR_LH_OP.checked && VAR_RH_OP.checked
         if (VAR_LH_OP.checked && VAR_RH_OP.checked) {
             alert('Do NOT check "Post operation of left hip" and "Post operation of right hip" at the same time!!');
@@ -1007,6 +1030,9 @@ function DXA_REPORTING() {
         }
         if (VAR_G3_NOT_SURE.checked) {
             parent.frames['DXA_RESULT'].document.write(VAR_G3_NOT_SURE.value +'<br>');
+        }
+        if (VAR_SGCC.checked) {
+            parent.frames['DXA_RESULT'].document.write(VAR_SGCC.value +'<br>');
         }
 
 
@@ -1214,7 +1240,7 @@ function DXA_REPORTING() {
                 "REMARK:<br>",
                 "> Appendicular skeletal mass (ASM) = the sum of the muscle masses of the four limbs.<br>",
                 "> ASM index (Kg / m^2) = ASM / height^2<br>",
-                "> The cutoff values for muscle mass measurement are 7.0 kg/m2 for men and 5.4 kg/m2 for women by using dual X-ray absorptiometry.<br>",
+                "> The cutoff values for muscle mass measurement are ", VAR_ASMI_MALE_CUTOFF.value.toFixed(1), " kg/m2 for men and ", VAR_ASMI_FEMALE_CUTOFF.value.toFixed(1), " kg/m2 for women by using dual X-ray absorptiometry.<br>",
                 "<br>",
                 "REFERENCE:<br>",
                 "> Chen LK, et al. Sarcopenia in Asia: Consensus Report of the Asian Working Group for Sarcopenia. J Am Med Dir Assoc 2014;15:95-101.<br>"
@@ -1284,6 +1310,5 @@ function DXA_REPORTING() {
     logID(VAR_LSC_DATA);
     logID(VAR_LSC_CHOICE);
     logIDTable(VAR_LSC_HOSPITAL, VAR_LSC_LSP, VAR_LSC_RH, VAR_LSC_LH);   
-
 
 }

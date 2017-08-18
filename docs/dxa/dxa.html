@@ -36,7 +36,7 @@
         <table border="1">
             <tr>
             <td rowspan="2">Fx site</td>
-            <td colspan="4">Genant grade</td>
+            <td colspan="4"><a href="genant_grade.html" target="_blank">Genant grade</a></td>
             <td rowspan="2">VP</td>
             <td rowspan="2">Fix</td>
             <td rowspan="2">location</td>
@@ -261,7 +261,7 @@
         --<br>
         <input type="button" value="clean LSP values" onclick="this.form.reset();" style="font-size:x-large;color:#FF0000;webkit-border-radius:10px;border-radius:10px;"><br>
         --<br>
-        <input type="button" value="clean all values" onclick="javascript:document.getElementById('DXA_LSP').reset();javascript:document.getElementById('DXA_HIP').reset();javascript:document.getElementById('DXA_BODY').reset();" style="font-size:x-large;color:#FF0000;webkit-border-radius:10px;border-radius:10px;"><br>
+        <input type="button" value="clean all values" onclick="ClearAllInputs();" style="font-size:x-large;color:#FF0000;webkit-border-radius:10px;border-radius:10px;"><br>
         
 
         </form>	
@@ -309,7 +309,7 @@
         --<br>
         <input type="button" value="clean HIP values" onclick="this.form.reset();" style="font-size:x-large;color:#FF0000;webkit-border-radius:10px;border-radius:10px;"><br>
         --<br>
-        <input type="button" value="clean all values" onclick="javascript:document.getElementById('DXA_LSP').reset();javascript:document.getElementById('DXA_HIP').reset();javascript:document.getElementById('DXA_BODY').reset();" style="font-size:x-large;color:#FF0000;webkit-border-radius:10px;border-radius:10px;"><br>
+        <input type="button" value="clean all values" onclick="ClearAllInputs()" style="font-size:x-large;color:#FF0000;webkit-border-radius:10px;border-radius:10px;"><br>
 
         </form>	
     </td>
@@ -348,7 +348,7 @@
         --<br>
         <input type="button" value="clean BODY values" onclick="this.form.reset();" style="font-size:x-large;color:#FF0000;webkit-border-radius:10px;border-radius:10px;"><br>
         --<br>
-        <input type="button" value="clean all values" onclick="javascript:document.getElementById('DXA_LSP').reset();javascript:document.getElementById('DXA_HIP').reset();javascript:document.getElementById('DXA_BODY').reset();" style="font-size:x-large;color:#FF0000;webkit-border-radius:10px;border-radius:10px;"><br>
+        <input type="button" value="clean all values" onclick="ClearAllInputs();" style="font-size:x-large;color:#FF0000;webkit-border-radius:10px;border-radius:10px;"><br>
 
         </form>     
     </td>
@@ -360,29 +360,25 @@
 <input type="checkbox" id="LSC_DATA" value="1" checked="checked">LSC data:<br>
 <table>
     <tr>
-        <td></td>
         <td width="17%">Hospital</td>
-        <td width="27%">Lumbar spine (g/cm2)</td>
-        <td width="27%">left hip (g/cm2)</td>
-        <td width="27%">right hip (g/cm2)</td>        
+        <td width="27%" align="center" valign="center">Lumbar spine (g/cm2)</td>
+        <td width="27%" align="center" valign="center">left hip (g/cm2)</td>
+        <td width="27%" align="center" valign="center">right hip (g/cm2)</td>        
     </tr>
     <tr>
-        <td><input type="radio" id="LSC_CHOICE" name="LSC_CHOICE" value="VGHTPE" checked="checked"></td>
-        <td>VGHTPE:</td>
+        <td><input type="radio" id="LSC_CHOICE" name="LSC_CHOICE" value="VGHTPE" checked="checked">VGHTPE:</td>
         <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LSP_VGHTPE" value=0.031></td>
         <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LH_VGHTPE" value=0.033></td>         
         <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_RH_VGHTPE" value=0.038></td>               
     </tr>
         <tr>
-        <td><input type="radio" id="LSC_CHOICE" name="LSC_CHOICE" value="TPECHZX"></td>
-        <td>TPECH-ZX:</td>
+        <td><input type="radio" id="LSC_CHOICE" name="LSC_CHOICE" value="TPECHZX">TPECH-ZX:</td>
         <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LSP_TPECHZX"></td>
         <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LH_TPECHZX"></td>
         <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_RH_TPECHZX"></td>
     </tr>
         <tr>
-        <td><input type="radio" id="LSC_CHOICE" name="LSC_CHOICE" value="OTHERS"></td>
-        <td align="left" valign="center"><INPUT TYPE="text" ID="LSC_OTHER" value="" placeholder="hospital name"></td>
+        <td><input type="radio" id="LSC_CHOICE" name="LSC_CHOICE" value="OTHERS"><INPUT TYPE="text" ID="LSC_OTHER" value="" placeholder="hospital name"></td>
         <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LSP_OTHER"></td>
         <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LH_OTHER"></td>        
         <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_RH_OTHER"></td>
