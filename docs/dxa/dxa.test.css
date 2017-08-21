@@ -1,0 +1,29 @@
+.CSS_CHECKBOX input[type="checkbox"] {
+ display: none;
+}
+.CSS_CHECKBOX input[type="checkbox"] + label {
+ display: inline-block;
+ background-color: #ccc;
+ cursor: pointer;
+ padding: 5px 10px;
+}
+.CSS_CHECKBOX input[type="checkbox"]:checked + label {
+ background-color: #f3d42e;
+}
+.CSS_RADIO input[type="radio"] {
+	display: none;
+}
+.CSS_RADIO input[type="radio"] + label {
+	display: inline-block;
+	background-color: #ccc;
+	cursor: pointer;
+	padding: 5px 10px;
+}
+.CSS_RADIO input[type="radio"]:checked + label {
+	background-color: #f00;
+	color: #fff;
+}
+
+body {
+    font-family: 'Inconsolata', monospace;
+}
