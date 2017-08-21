@@ -330,5 +330,8 @@ body {
 }
 
 .result_text {
-    width:90vw;
+    width:100vw;
+    height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
 }

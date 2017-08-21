@@ -1302,7 +1302,7 @@ function DXA_REPORTING() {
         
         }
     }
-    
+    parent.frames['DXA_RESULT'].document.write("<br><br><br>");
     parent.frames['DXA_RESULT'].document.write('<script src="copytextclipboard.js"></script><script>copytextclipboard.init(function(thetext) {console.log("TEXT COPIED:" + thetext);});</script>');
     parent.frames['DXA_RESULT'].document.write('</div>');
     parent.frames['DXA_RESULT'].document.write('</body></html>');
