@@ -5,6 +5,7 @@ function csson() {
     headcsson += '<script type="text/javascript" src="dxa.test.js"></script>';
     headcsson += '<link rel="stylesheet" type="text/css" href="dxa.test.css" charset="utf-8">';
     headcsson += '<link href="https://fonts.googleapis.com/css?family=Inconsolata:400" rel="stylesheet" type="text/css">';
+    headcsson += '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
     parent.frames['DXA'].document.head.innerHTML = headcsson;
     
     var resultcsson = "";
@@ -12,6 +13,7 @@ function csson() {
     resultcsson += '<script></script>';
     resultcsson += '<link rel="stylesheet" type="text/css" href="dxa.result.css" charset="utf-8">';
     resultcsson += '<link href="https://fonts.googleapis.com/css?family=Inconsolata:400" rel="stylesheet" type="text/css">';
+    resultcsson += '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
     parent.frames['DXA_RESULT'].document.head.innerHTML = resultcsson;
 }
 
@@ -20,11 +22,13 @@ function cssoff() {
     headcssoff += '<meta charset="UTF-8">';
     headcssoff += '<title>dxa test</title>';
     headcssoff += '<script type="text/javascript" src="dxa.test.js"></script>';
+    headcssoff += '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
     parent.frames['DXA'].document.head.innerHTML = headcssoff;
     
     var resultcssoff = "";
     resultcssoff += '<meta charset="UTF-8">';
     resultcssoff += '<script></script>';
+    resultcssoff += '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
     parent.frames['DXA_RESULT'].document.head.innerHTML = resultcssoff;
 }
 
@@ -865,6 +869,7 @@ function DXA_REPORTING() {
         parent.frames['DXA_RESULT'].document.write('<div class="result_text">');
     }
     else {
+        parent.frames['DXA_RESULT'].document.write('<meta name="viewport" content="width=device-width, initial-scale=1.0">');
         parent.frames['DXA_RESULT'].document.write('</head>');
         parent.frames['DXA_RESULT'].document.write('<body bgcolor=bisque>');
         parent.frames['DXA_RESULT'].document.write('<div class="result_text">');

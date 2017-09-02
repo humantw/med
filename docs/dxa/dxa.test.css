@@ -24,6 +24,43 @@
 	color: #fff;
 }
 
+.CSS_BUTTON_CLEANDATE {
+    color:#FF0000;
+    webkit-border-radius:5px;
+    border-radius:5px;   
+}
+
+.CSS_BUTTON_REPORTING {
+    font-size:x-large;
+    color:#0000FF;
+    webkit-border-radius:10px;
+    border-radius:10px;    
+}
+.CSS_BUTTON_CLEANREPORT {
+    font-size:x-large;
+    color:#FF8800;
+    webkit-border-radius:10px;
+    border-radius:10px;    
+}
+.CSS_BUTTON_CLEANVALUE {
+    font-size:x-large;
+    color:#FF0000;
+    webkit-border-radius:10px;
+    border-radius:10px;   
+}
+.CSS_BUTTON_CLEANALL {
+    font-size:x-large;
+    color:#FF0000;
+    webkit-border-radius:10px;
+    border-radius:10px;   
+}
+
 body {
     font-family: 'Inconsolata', monospace;
+}
+input[type="number"] {
+    width: 5em;
+}
+input[type="text"] {
+    width: 9em;
 }
