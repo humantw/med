@@ -338,11 +338,15 @@ function DXA_REPORTING() {
         }        
 
 /* Body variants */    
+    var VAR_BODY_BMD_CHECKBOX=document.getElementById("BODY_BMD_CHECKBOX");
     var VAR_BODY_BMD=document.getElementById("BODY_BMD");
     var VAR_BODY_TSCORE=document.getElementById("BODY_TSCORE");
     var VAR_BODY_ZSCORE=document.getElementById("BODY_ZSCORE");
     
-    var VAR_BODY_MUSCLE=document.getElementById("BODY_MUSCLE");
+    var VAR_BODY_FAT_CHECKBOX=document.getElementById("BODY_FAT_CHECKBOX");
+    var VAR_BODY_FAT=document.getElementById("BODY_FAT");
+    
+    var VAR_BODY_MUSCLE_CHECKBOX=document.getElementById("BODY_MUSCLE_CHECKBOX");
     var ARRAY_BODY_SEX =document.getElementsByName("BODY_SEX");
     var VAR_BODY_SEX;
        for(var i = 0; i < ARRAY_BODY_SEX.length; i++) {
@@ -368,7 +372,7 @@ function DXA_REPORTING() {
             VAR_BODY_LALM_G.value = (VAR_BODY_LALM_KG.value * 1000).toFixed(1);            
         }
         else {
-            if (VAR_BODY_MUSCLE.checked) {alert('No left arm lean mass !!');return false;}
+            if (VAR_BODY_MUSCLE_CHECKBOX.checked) {alert('No left arm lean mass !!');return false;}
         }
     
     var VAR_BODY_RALM_G=document.getElementById("BODY_RALM_G");
@@ -385,7 +389,7 @@ function DXA_REPORTING() {
             VAR_BODY_RALM_G.value = (VAR_BODY_RALM_KG.value * 1000).toFixed(1);            
         }
         else {
-            if (VAR_BODY_MUSCLE.checked) {alert('No right arm lean mass !!');return false;}
+            if (VAR_BODY_MUSCLE_CHECKBOX.checked) {alert('No right arm lean mass !!');return false;}
         }
     
     var VAR_BODY_LLLM_G=document.getElementById("BODY_LLLM_G");
@@ -402,7 +406,7 @@ function DXA_REPORTING() {
             VAR_BODY_LLLM_G.value = (VAR_BODY_LLLM_KG.value * 1000).toFixed(1);            
         }
         else {
-            if (VAR_BODY_MUSCLE.checked) {alert('No left leg lean mass !!');return false;}
+            if (VAR_BODY_MUSCLE_CHECKBOX.checked) {alert('No left leg lean mass !!');return false;}
         }
     
     var VAR_BODY_RLLM_G=document.getElementById("BODY_RLLM_G");
@@ -419,7 +423,7 @@ function DXA_REPORTING() {
             VAR_BODY_RLLM_G.value = (VAR_BODY_RLLM_KG.value * 1000).toFixed(1);            
         }
         else {
-            if (VAR_BODY_MUSCLE.checked) {alert('No right leg lean mass !!');return false;}
+            if (VAR_BODY_MUSCLE_CHECKBOX.checked) {alert('No right leg lean mass !!');return false;}
         }
 
     var VAR_BODY_HEIGHT_CM=document.getElementById("BODY_HEIGHT_CM");
@@ -436,7 +440,7 @@ function DXA_REPORTING() {
             VAR_BODY_HEIGHT_CM.value = (VAR_BODY_HEIGHT_M.value * 100).toFixed(1);       
         }
         else {
-            if (VAR_BODY_MUSCLE.checked) {alert('No body height !!');return false;}
+            if (VAR_BODY_MUSCLE_CHECKBOX.checked) {alert('No body height !!');return false;}
         }
     
     var VAR_ASM = {
@@ -1235,7 +1239,9 @@ function DXA_REPORTING() {
         "checked" : false,
         "value" : "Dual-energy X-ray absorptiometry of total body"
     }
-    if (VAR_BODY_BMD.value){DXA_BODY_PRETERM.checked = true}
+    if (VAR_BODY_BMD_CHECKBOX.checked || VAR_BODY_FAT_CHECKBOX.checked || VAR_BODY_MUSCLE_CHECKBOX.checked){
+        DXA_BODY_PRETERM.checked = true
+    }
     if (DXA_PRETERM.checked && DXA_BODY_PRETERM.checked) {
         parent.frames['DXA_RESULT'].document.write('<br>--<br><br>');
     }
@@ -1248,24 +1254,38 @@ function DXA_REPORTING() {
             DXA_BODY_PRETERM.value = DXA_BODY_PRETERM.value + ":<br><br>";
         }
         parent.frames['DXA_RESULT'].document.write(DXA_BODY_PRETERM.value);
-        parent.frames['DXA_RESULT'].document.write("BONE DENSITY MEASUREMENT:<br>");
-        parent.frames['DXA_RESULT'].document.write("> Bone mineral density (g/cm2) = " + VAR_BODY_BMD.value + "<br>");
         
-        if (VAR_BODY_TSCORE.value) {
-            parent.frames['DXA_RESULT'].document.write("> T-score = " + VAR_BODY_TSCORE.value + "<br>");
+    // DXA body: BMD    
+        if (VAR_BODY_BMD_CHECKBOX.checked){
+            parent.frames['DXA_RESULT'].document.write("BONE DENSITY MEASUREMENT:<br>");
+            parent.frames['DXA_RESULT'].document.write("> Bone mineral density (g/cm2) = " + VAR_BODY_BMD.value + "<br>");
+            if (VAR_BODY_TSCORE.value) {
+                parent.frames['DXA_RESULT'].document.write("> T-score = " + VAR_BODY_TSCORE.value + "<br>");
+            }
+            if (VAR_BODY_ZSCORE.value) {
+                parent.frames['DXA_RESULT'].document.write("> Z-score = " + VAR_BODY_ZSCORE.value + "<br>");     
+            }
+            if (VAR_BODY_TSCORE.value || VAR_BODY_ZSCORE.value) {
+                parent.frames['DXA_RESULT'].document.write("> This data is for your reference and study. Please check DXA of spine or hips for clinical diagnosis.<br>");
+            }
         }
-        if (VAR_BODY_ZSCORE.value) {
-            parent.frames['DXA_RESULT'].document.write("> Z-score = " + VAR_BODY_ZSCORE.value + "<br>");     
-        }
-        if (!VAR_BODY_TSCORE.value && !VAR_BODY_ZSCORE.value) {
-            alert('Please fill T-score or Z-score of DXA of total body!!');
-            return false;
-        }
-        parent.frames['DXA_RESULT'].document.write("> This data is for your reference and study. Please check DXA of spine or hips for clinical diagnosis.<br>");
 
+    // DXA body: fat 
+        if (VAR_BODY_FAT_CHECKBOX.checked){
+            if (VAR_BODY_FAT.value){
+                parent.frames['DXA_RESULT'].document.write("BODY FAT MEASUREMENT:<br>");
+                parent.frames['DXA_RESULT'].document.write("> Total fat (%) = " + VAR_BODY_FAT.value + "<br>");
+            }
+            else {
+                alert('Please fill total fat value!!');
+            return false;   
+            }
+            
+        }
+        
     // DXA body: muscle mass measurement
-        if (VAR_BODY_MUSCLE.checked) {
-            parent.frames['DXA_RESULT'].document.write("<br>");
+        if (VAR_BODY_MUSCLE_CHECKBOX.checked) {
+//            parent.frames['DXA_RESULT'].document.write("<br>");
 //            parent.frames['DXA_RESULT'].document.write("--<br><br>");
             parent.frames['DXA_RESULT'].document.write("MUSCLE MASS MEASUREMENT:<br>");
             parent.frames['DXA_RESULT'].document.write("> Lean mass of left arm (Kg)  = ", VAR_BODY_LALM_KG.value, "<br>"); 
@@ -1354,8 +1374,12 @@ function DXA_REPORTING() {
     logIDTable(VAR_LOWEST_TSCORE, VAR_LOWEST_ZSCORE);
     
     console.log('-- BODY --');
+    logCheckTable(VAR_BODY_BMD_CHECKBOX,VAR_BODY_FAT_CHECKBOX,VAR_BODY_MUSCLE_CHECKBOX);
+    logCheck(VAR_BODY_BMD_CHECKBOX);
     logIDTable(VAR_BODY_BMD, VAR_BODY_TSCORE, VAR_BODY_ZSCORE);
-    logCheck(VAR_BODY_MUSCLE);
+    logCheck(VAR_BODY_FAT_CHECKBOX);
+    logIDTable(VAR_BODY_FAT);
+    logCheck(VAR_BODY_MUSCLE_CHECKBOX);
     logID(VAR_BODY_SEX);
     logIDTable(VAR_BODY_LALM_G, VAR_BODY_LALM_KG, VAR_BODY_RALM_G, VAR_BODY_RALM_KG, VAR_BODY_LLLM_G, VAR_BODY_LLLM_KG, VAR_BODY_RLLM_G, VAR_BODY_RLLM_KG, VAR_BODY_HEIGHT_CM, VAR_BODY_HEIGHT_M, VAR_ASM, VAR_ASMI, VAR_ASMI_MALE_CUTOFF, VAR_ASMI_FEMALE_CUTOFF);
             
