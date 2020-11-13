@@ -1268,6 +1268,7 @@ function DXA_REPORTING() {
             if (VAR_BODY_TSCORE.value || VAR_BODY_ZSCORE.value) {
                 parent.frames['DXA_RESULT'].document.write("> This data is for your reference and study. Please check DXA of spine or hips for clinical diagnosis.<br>");
             }
+            parent.frames['DXA_RESULT'].document.write("<br>");
         }
 
     // DXA body: fat 
@@ -1275,6 +1276,7 @@ function DXA_REPORTING() {
             if (VAR_BODY_FAT.value){
                 parent.frames['DXA_RESULT'].document.write("BODY FAT MEASUREMENT:<br>");
                 parent.frames['DXA_RESULT'].document.write("> Total fat (%) = " + VAR_BODY_FAT.value + "<br>");
+                parent.frames['DXA_RESULT'].document.write("<br>");
             }
             else {
                 alert('Please fill total fat value!!');
