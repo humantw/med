@@ -1303,6 +1303,7 @@ function DXA_REPORTING() {
             if (VAR_BODY_HEIGHT_M.value == "") {
                 parent.frames['DXA_RESULT'].document.write("> Height (m) = No height data <br>"); 
                 parent.frames['DXA_RESULT'].document.write("> ASM index (Kg / m^2) = Not available without height <br>");
+				VAR_BODY_RR_CHECKBOX.checked = "";
             }
             else {
                 parent.frames['DXA_RESULT'].document.write("> Height (m) = ", VAR_BODY_HEIGHT_M.value, "<br>"); 
