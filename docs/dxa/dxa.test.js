@@ -366,10 +366,10 @@ function DXA_REPORTING() {
             }            
         }
         else if (VAR_BODY_LALM_G.value && !VAR_BODY_LALM_KG.value) {
-            VAR_BODY_LALM_KG.value = (VAR_BODY_LALM_G.value / 1000).toFixed(4);            
+            VAR_BODY_LALM_KG.value = parseFloat((VAR_BODY_LALM_G.value / 1000).toFixed(4));            
         }
         else if (!VAR_BODY_LALM_G.value && VAR_BODY_LALM_KG.value) {
-            VAR_BODY_LALM_G.value = (VAR_BODY_LALM_KG.value * 1000).toFixed(1);            
+            VAR_BODY_LALM_G.value = parseFloat((VAR_BODY_LALM_KG.value * 1000).toFixed(1));            
         }
         else {
             if (VAR_BODY_MUSCLE_CHECKBOX.checked) {alert('No left arm lean mass !!');return false;}
@@ -383,10 +383,10 @@ function DXA_REPORTING() {
             }            
         }
         else if (VAR_BODY_RALM_G.value && !VAR_BODY_RALM_KG.value) {
-            VAR_BODY_RALM_KG.value = (VAR_BODY_RALM_G.value / 1000).toFixed(4);            
+            VAR_BODY_RALM_KG.value = parseFloat((VAR_BODY_RALM_G.value / 1000).toFixed(4));            
         }
         else if (!VAR_BODY_RALM_G.value && VAR_BODY_RALM_KG.value) {
-            VAR_BODY_RALM_G.value = (VAR_BODY_RALM_KG.value * 1000).toFixed(1);            
+            VAR_BODY_RALM_G.value = parseFloat((VAR_BODY_RALM_KG.value * 1000).toFixed(1));            
         }
         else {
             if (VAR_BODY_MUSCLE_CHECKBOX.checked) {alert('No right arm lean mass !!');return false;}
@@ -400,10 +400,10 @@ function DXA_REPORTING() {
             } 
         }
         else if (VAR_BODY_LLLM_G.value && !VAR_BODY_LLLM_KG.value) {
-            VAR_BODY_LLLM_KG.value = (VAR_BODY_LLLM_G.value / 1000).toFixed(4);            
+            VAR_BODY_LLLM_KG.value = parseFloat((VAR_BODY_LLLM_G.value / 1000).toFixed(4));            
         }
         else if (!VAR_BODY_LLLM_G.value && VAR_BODY_LLLM_KG.value) {
-            VAR_BODY_LLLM_G.value = (VAR_BODY_LLLM_KG.value * 1000).toFixed(1);            
+            VAR_BODY_LLLM_G.value = parseFloat((VAR_BODY_LLLM_KG.value * 1000).toFixed(1));            
         }
         else {
             if (VAR_BODY_MUSCLE_CHECKBOX.checked) {alert('No left leg lean mass !!');return false;}
@@ -417,10 +417,10 @@ function DXA_REPORTING() {
             } 
         }
         else if (VAR_BODY_RLLM_G.value && !VAR_BODY_RLLM_KG.value) {
-            VAR_BODY_RLLM_KG.value = (VAR_BODY_RLLM_G.value / 1000).toFixed(4);            
+            VAR_BODY_RLLM_KG.value = parseFloat((VAR_BODY_RLLM_G.value / 1000).toFixed(4));            
         }
         else if (!VAR_BODY_RLLM_G.value && VAR_BODY_RLLM_KG.value) {
-            VAR_BODY_RLLM_G.value = (VAR_BODY_RLLM_KG.value * 1000).toFixed(1);            
+            VAR_BODY_RLLM_G.value = parseFloat((VAR_BODY_RLLM_KG.value * 1000).toFixed(1));            
         }
         else {
             if (VAR_BODY_MUSCLE_CHECKBOX.checked) {alert('No right leg lean mass !!');return false;}
@@ -434,18 +434,21 @@ function DXA_REPORTING() {
             } 
         }
         else if (VAR_BODY_HEIGHT_CM.value && !VAR_BODY_HEIGHT_M.value) {
-            VAR_BODY_HEIGHT_M.value = (VAR_BODY_HEIGHT_CM.value / 100).toFixed(3);            
+            VAR_BODY_HEIGHT_M.value = parseFloat((VAR_BODY_HEIGHT_CM.value / 100).toFixed(3));            
         }
         else if (!VAR_BODY_HEIGHT_CM.value && VAR_BODY_HEIGHT_M.value) {
-            VAR_BODY_HEIGHT_CM.value = (VAR_BODY_HEIGHT_M.value * 100).toFixed(1);       
+            VAR_BODY_HEIGHT_CM.value = parseFloat((VAR_BODY_HEIGHT_M.value * 100).toFixed(1));       
         }
         else {
-            if (VAR_BODY_MUSCLE_CHECKBOX.checked) {alert('No body height !!');return false;}
+            if (VAR_BODY_MUSCLE_CHECKBOX.checked) {
+                alert('No body height !!');
+                //return false;
+            }
         }
     
     var VAR_ASM = {
         "id" : "ASM",
-        "value" : VAR_BODY_LALM_KG.value * 1 + VAR_BODY_RALM_KG.value * 1 + VAR_BODY_LLLM_KG.value * 1 + VAR_BODY_RLLM_KG.value * 1
+        "value" : parseFloat((VAR_BODY_LALM_KG.value * 1 + VAR_BODY_RALM_KG.value * 1 + VAR_BODY_LLLM_KG.value * 1 + VAR_BODY_RLLM_KG.value * 1).toFixed(4))
     };
     var VAR_ASMI = {
         "id" : "ASMI",
@@ -459,7 +462,9 @@ function DXA_REPORTING() {
     var VAR_ASMI_FEMALE_CUTOFF = {
         "id" : "ASMI_FEMALE_CUTOFF",
         "value" : 5.4
-    };    
+    };
+    var VAR_BODY_RR_CHECKBOX=document.getElementById("BODY_RR_CHECKBOX");
+    
     
     
 /* Grading */
@@ -1294,39 +1299,47 @@ function DXA_REPORTING() {
             parent.frames['DXA_RESULT'].document.write("> Lean mass of right arm (Kg) = ", VAR_BODY_RALM_KG.value, "<br>"); 
             parent.frames['DXA_RESULT'].document.write("> Lean mass of left leg (Kg)  = ", VAR_BODY_LLLM_KG.value, "<br>"); 
             parent.frames['DXA_RESULT'].document.write("> Lean mass of right leg (Kg) = ", VAR_BODY_RLLM_KG.value, "<br>"); 
-            parent.frames['DXA_RESULT'].document.write("> Height (m) = ", VAR_BODY_HEIGHT_M.value, "<br>"); 
-            parent.frames['DXA_RESULT'].document.write("> ASM index (Kg / m^2) = ", VAR_ASMI.value, "<br>");
-            if (VAR_BODY_SEX.value == "male") {
-                if (VAR_ASMI.value >= VAR_ASMI_MALE_CUTOFF.value) {
-                    parent.frames['DXA_RESULT'].document.write("> The ASM index indicates no low muscle mass.<br>");
-                }
-                else {
-                    parent.frames['DXA_RESULT'].document.write("> The ASM index indicates low muscle mass. Please correlate with the clinical condition for the diagnosis of sarcopenia.<br>");
-                }
+            parent.frames['DXA_RESULT'].document.write("> ASM (Kg) = ", VAR_ASM.value, "<br>");
+            if (VAR_BODY_HEIGHT_M.value == "") {
+                parent.frames['DXA_RESULT'].document.write("> Height (m) = No height data <br>"); 
+                parent.frames['DXA_RESULT'].document.write("> ASM index (Kg / m^2) = Not available without height <br>");
             }
-            else if (VAR_BODY_SEX.value == "female") {
-                if (VAR_ASMI.value >= VAR_ASMI_FEMALE_CUTOFF.value) {
-                    parent.frames['DXA_RESULT'].document.write("> The ASM index indicates no low muscle mass.<br>");
+            else {
+                parent.frames['DXA_RESULT'].document.write("> Height (m) = ", VAR_BODY_HEIGHT_M.value, "<br>"); 
+                parent.frames['DXA_RESULT'].document.write("> ASM index (Kg / m^2) = ", VAR_ASMI.value, "<br>");
+                if (VAR_BODY_SEX.value == "male") {
+                    if (VAR_ASMI.value >= VAR_ASMI_MALE_CUTOFF.value) {
+                        parent.frames['DXA_RESULT'].document.write("> The ASM index indicates no low muscle mass.<br>");
+                    }
+                    else {
+                        parent.frames['DXA_RESULT'].document.write("> The ASM index indicates low muscle mass. Please correlate with the clinical condition for the diagnosis of sarcopenia.<br>");
+                    }
                 }
-                else {
-                    parent.frames['DXA_RESULT'].document.write("> The ASM index indicates low muscle mass. Please correlate with the clinical condition for the diagnosis of sarcopenia.<br>");
+                else if (VAR_BODY_SEX.value == "female") {
+                    if (VAR_ASMI.value >= VAR_ASMI_FEMALE_CUTOFF.value) {
+                        parent.frames['DXA_RESULT'].document.write("> The ASM index indicates no low muscle mass.<br>");
+                    }
+                    else {
+                        parent.frames['DXA_RESULT'].document.write("> The ASM index indicates low muscle mass. Please correlate with the clinical condition for the diagnosis of sarcopenia.<br>");
+                    }
                 }
-            }
-            else {    // condition for non-male & non-female ?!            
+                else {    // condition for non-male & non-female ?!            
+                }
             }
             
-            parent.frames['DXA_RESULT'].document.write(
-                "<br>",
-                //"--<br><br>",
-                "REMARK:<br>",
-                "> Appendicular skeletal mass (ASM) = the sum of the muscle masses of the four limbs.<br>",
-                "> ASM index (Kg / m^2) = ASM / height^2<br>",
-                "> The cutoff values for muscle mass measurement are ", VAR_ASMI_MALE_CUTOFF.value.toFixed(1), " kg/m2 for men and ", VAR_ASMI_FEMALE_CUTOFF.value.toFixed(1), " kg/m2 for women by using dual X-ray absorptiometry.<br>",
-                "<br>",
-                "REFERENCE:<br>",
-                "> Chen LK, et al. Sarcopenia in Asia: Consensus Report of the Asian Working Group for Sarcopenia. J Am Med Dir Assoc 2014;15:95-101.<br>"
-            );
-        
+            if (VAR_BODY_RR_CHECKBOX.checked) {
+                parent.frames['DXA_RESULT'].document.write(
+                    "<br>",
+                    //"--<br><br>",
+                    "REMARK:<br>",
+                    "> Appendicular skeletal mass (ASM) = the sum of the muscle masses of the four limbs.<br>",
+                    "> ASM index (Kg / m^2) = ASM / height^2<br>",
+                    "> The cutoffs for low muscle mass are <", VAR_ASMI_MALE_CUTOFF.value.toFixed(1), " kg/m2 in men and <", VAR_ASMI_FEMALE_CUTOFF.value.toFixed(1), " kg/m2 in women by DXA.<br>",
+                    "<br>",
+                    "REFERENCE:<br>",
+                    "> Chen LK et al. Asian Working Group for Sarcopenia: 2019 Consensus Update on Sarcopenia Diagnosis and Treatment. J Am Med Dir Assoc 2020;21:300-307.<br>"
+                );
+            }
         }
     }
     parent.frames['DXA_RESULT'].document.write("<br><br><br>");
@@ -1384,6 +1397,7 @@ function DXA_REPORTING() {
     logCheck(VAR_BODY_MUSCLE_CHECKBOX);
     logID(VAR_BODY_SEX);
     logIDTable(VAR_BODY_LALM_G, VAR_BODY_LALM_KG, VAR_BODY_RALM_G, VAR_BODY_RALM_KG, VAR_BODY_LLLM_G, VAR_BODY_LLLM_KG, VAR_BODY_RLLM_G, VAR_BODY_RLLM_KG, VAR_BODY_HEIGHT_CM, VAR_BODY_HEIGHT_M, VAR_ASM, VAR_ASMI, VAR_ASMI_MALE_CUTOFF, VAR_ASMI_FEMALE_CUTOFF);
+    logCheck(VAR_BODY_RR_CHECKBOX);
             
     console.log('-- LSC: lumbar spine --');
     logCheck(VAR_PREVIOUS_LSP);
