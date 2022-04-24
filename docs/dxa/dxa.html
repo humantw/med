@@ -27,9 +27,9 @@
         <input type="checkbox" id="FOV_L4" value="L4" checked="checked">L4
              
         <br><br>
-        > BMD= <input type="number" id="LSP_BMD"><br>
-        > T-score= <input type="number" id="LSP_TSCORE"><br>
-        > Z-score= <input type="number" id="LSP_ZSCORE"><br><br>
+        > BMD= <input type="number" step="0.0001" id="LSP_BMD"><br>
+        > T-score= <input type="number" step="0.0001" id="LSP_TSCORE"><br>
+        > Z-score= <input type="number" step="0.0001" id="LSP_ZSCORE"><br><br>
      
         <input type="checkbox" id="VFA" value="Vertebral Fracture Assessment (VFA):" onclick="ShowVFA()">Vertebral Fracture Assessment (VFA): <br>
         <div id="VFA_TABLE" style="display:none">
@@ -252,7 +252,7 @@
         <br><br><br><br> 
         <input type="checkbox" id="PREVIOUS_LSP" value="">Previous lumbar spine DXA:<br>
         > Exam date=<input type="date" id="PREVIOUS_LSP_EXAM_DATE"><br>
-        > BMD= <input type="number" id="PREVIOUS_LSP_EXAM_LSP_BMD"><br>
+        > BMD= <input type="number" step="0.0001" id="PREVIOUS_LSP_EXAM_LSP_BMD"><br>
         <br><br> 
         Report of lumbar spine<br> <input type="submit" value="Report output" onclick="DXA_REPORTING()" style="font-size:x-large;color:#0000FF;webkit-border-radius:10px;border-radius:10px;"><br>
 
@@ -281,16 +281,16 @@
 
         Left hip:<br>
         <div id="DIV_LH" style="display:block">
-        > BMD= <INPUT TYPE="number" ID="LH_BMD"><br>
-        > T-score= <INPUT TYPE="number" ID="LH_TSCORE"><br>
-        > Z-score= <INPUT TYPE="number" ID="LH_ZSCORE"><br>
+        > BMD= <INPUT type="number" step="0.0001" ID="LH_BMD"><br>
+        > T-score= <INPUT type="number" step="0.0001" ID="LH_TSCORE"><br>
+        > Z-score= <INPUT type="number" step="0.0001" ID="LH_ZSCORE"><br>
         </div>
         <input type="checkbox" ID="LH_OP" value="" onclick="HideLH()">Post operation of left hip<br><br>
         Right hip:<br>
         <div id="DIV_RH" style="display:block">
-        > BMD= <INPUT TYPE="number" ID="RH_BMD"><br>
-        > T-score= <INPUT TYPE="number" ID="RH_TSCORE"><br>
-        > Z-score= <INPUT TYPE="number" ID="RH_ZSCORE"><br>
+        > BMD= <INPUT type="number" step="0.0001" ID="RH_BMD"><br>
+        > T-score= <INPUT type="number" step="0.0001" ID="RH_TSCORE"><br>
+        > Z-score= <INPUT type="number" step="0.0001" ID="RH_ZSCORE"><br>
         </div>
         <input type="checkbox" ID="RH_OP" value="" onclick="HideRH()">Post operation of right hip<br><br><br><br>
      
@@ -298,9 +298,9 @@
         > Exam date=<br>
         <INPUT TYPE="date" ID="PREVIOUS_HIP_EXAM_DATE"><br>(blank = as the same as PREVIOUS LSP)<br><br>
         Left hip:<br>
-        > BMD= <INPUT TYPE="number" ID="PREVIOUS_HIP_EXAM_LH_BMD"><br><br>
+        > BMD= <INPUT type="number" step="0.0001" ID="PREVIOUS_HIP_EXAM_LH_BMD"><br><br>
         Right hip:<br>
-        > BMD= <INPUT TYPE="number" ID="PREVIOUS_HIP_EXAM_RH_BMD"><br><br>
+        > BMD= <INPUT type="number" step="0.0001" ID="PREVIOUS_HIP_EXAM_RH_BMD"><br><br>
 
         Report of hips<br> <input type="submit" value="Report output" onclick="DXA_REPORTING()" style="font-size:x-large;color:#0000FF;webkit-border-radius:10px;border-radius:10px;"><br>
 
@@ -326,20 +326,20 @@
         
         <form id= "DXA_BODY">
         Total body:<br>
-        > BMD= <INPUT TYPE="number" id="BODY_BMD"><br>
-        > T-score= <INPUT TYPE="number" id="BODY_TSCORE"><br>
-        > Z-score= <INPUT TYPE="number" id="BODY_ZSCORE"><br><br><br>
+        > BMD= <INPUT type="number" step="0.0001" id="BODY_BMD"><br>
+        > T-score= <INPUT type="number" step="0.0001" id="BODY_TSCORE"><br>
+        > Z-score= <INPUT type="number" step="0.0001" id="BODY_ZSCORE"><br><br><br>
         <input type="checkbox" id="BODY_MUSCLE" value="">Muscle mass measurement:<br><br>
         
         > Sex:<br>
         <input type="radio" id="BODY_SEX" name="BODY_SEX" value="male" checked="checked">male<br> 
         <input type="radio" id="BODY_SEX" name="BODY_SEX" value="female">female<br><br>
         
-        > Lean mass of left arm  <br>= <INPUT TYPE="number" id="BODY_LALM_G">(g) <br>= <INPUT TYPE="number" id="BODY_LALM_KG">(Kg)<br><br>
-        > Lean mass of right arm <br>= <INPUT TYPE="number" id="BODY_RALM_G">(g) <br>= <INPUT TYPE="number" id="BODY_RALM_KG">(Kg)<br><br>
-        > Lean mass of left leg  <br>= <INPUT TYPE="number" id="BODY_LLLM_G">(g) <br>= <INPUT TYPE="number" id="BODY_LLLM_KG">(Kg)<br><br>
-        > Lean mass of right leg <br>= <INPUT TYPE="number" id="BODY_RLLM_G">(g) <br>= <INPUT TYPE="number" id="BODY_RLLM_KG">(Kg)<br><br>
-        > Height <br>= <INPUT TYPE="number" id="BODY_HEIGHT_CM">(cm) <br>= <INPUT TYPE="number" id="BODY_HEIGHT_M">(m) <br><br>
+        > Lean mass of left arm  <br>= <INPUT type="number" step="0.00001" id="BODY_LALM_G">(g) <br>= <INPUT type="number" step="0.00001" id="BODY_LALM_KG">(Kg)<br><br>
+        > Lean mass of right arm <br>= <INPUT type="number" step="0.00001" id="BODY_RALM_G">(g) <br>= <INPUT type="number" step="0.00001" id="BODY_RALM_KG">(Kg)<br><br>
+        > Lean mass of left leg  <br>= <INPUT type="number" step="0.00001" id="BODY_LLLM_G">(g) <br>= <INPUT type="number" step="0.00001" id="BODY_LLLM_KG">(Kg)<br><br>
+        > Lean mass of right leg <br>= <INPUT type="number" step="0.00001" id="BODY_RLLM_G">(g) <br>= <INPUT type="number" step="0.00001" id="BODY_RLLM_KG">(Kg)<br><br>
+        > Height <br>= <INPUT type="number" step="0.0001" id="BODY_HEIGHT_CM">(cm) <br>= <INPUT type="number" step="0.0001" id="BODY_HEIGHT_M">(m) <br><br>
 
         Report of total body<br> <input type="submit" value="Report output" onclick="DXA_REPORTING()" style="font-size:x-large;color:#0000FF;webkit-border-radius:10px;border-radius:10px;"><br>
 
@@ -367,21 +367,21 @@
     </tr>
     <tr>
         <td><input type="radio" id="LSC_CHOICE" name="LSC_CHOICE" value="VGHTPE" checked="checked">VGHTPE:</td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LSP_VGHTPE" value=0.031></td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LH_VGHTPE" value=0.033></td>         
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_RH_VGHTPE" value=0.038></td>               
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_LSP_VGHTPE" value=0.031></td>
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_LH_VGHTPE" value=0.033></td>         
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_RH_VGHTPE" value=0.038></td>               
     </tr>
         <tr>
         <td><input type="radio" id="LSC_CHOICE" name="LSC_CHOICE" value="TPECHZX">TPECH-ZX:</td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LSP_TPECHZX"></td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LH_TPECHZX"></td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_RH_TPECHZX"></td>
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_LSP_TPECHZX"></td>
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_LH_TPECHZX"></td>
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_RH_TPECHZX"></td>
     </tr>
         <tr>
         <td><input type="radio" id="LSC_CHOICE" name="LSC_CHOICE" value="OTHERS"><INPUT TYPE="text" ID="LSC_OTHER" value="" placeholder="full hospital name"></td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LSP_OTHER"></td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LH_OTHER"></td>        
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_RH_OTHER"></td>
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_LSP_OTHER"></td>
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_LH_OTHER"></td>        
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_RH_OTHER"></td>
     </tr>
 </table>
 

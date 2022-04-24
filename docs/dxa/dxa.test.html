@@ -29,9 +29,9 @@
         <input type="checkbox" id="FOV_L4" value="L4" checked="checked"><label for="FOV_L4">L4</label>
         </div>     
         <br><br>
-        > BMD= <input type="number" id="LSP_BMD"><br>
-        > T-score= <input type="number" id="LSP_TSCORE"><br>
-        > Z-score= <input type="number" id="LSP_ZSCORE"><br><br>
+        > BMD= <input type="number" step="0.0001" id="LSP_BMD"><br>
+        > T-score= <input type="number" step="0.0001" id="LSP_TSCORE"><br>
+        > Z-score= <input type="number" step="0.0001" id="LSP_ZSCORE"><br><br>
      
         <div class="CSS_CHECKBOX">
         <div class="CSS_RADIO">
@@ -260,7 +260,7 @@
         <br><br><br><br> 
         <input type="checkbox" id="PREVIOUS_LSP" value="">Previous lumbar spine DXA:<br>
         > Exam date=<input type="date" id="PREVIOUS_LSP_EXAM_DATE"><br>
-        > BMD= <input type="number" id="PREVIOUS_LSP_EXAM_LSP_BMD"><br>
+        > BMD= <input type="number" step="0.0001" id="PREVIOUS_LSP_EXAM_LSP_BMD"><br>
         <br><br> 
         Report of lumbar spine<br> <input type="submit" class="CSS_BUTTON_REPORTING" value="Report output" onclick="DXA_REPORTING()"><br>
 
@@ -288,16 +288,16 @@
 
         Left hip:<br>
         <div id="DIV_LH" style="display:block">
-        > BMD= <INPUT TYPE="number" ID="LH_BMD"><br>
-        > T-score= <INPUT TYPE="number" ID="LH_TSCORE"><br>
-        > Z-score= <INPUT TYPE="number" ID="LH_ZSCORE"><br>
+        > BMD= <INPUT type="number" step="0.0001" ID="LH_BMD"><br>
+        > T-score= <INPUT type="number" step="0.0001" ID="LH_TSCORE"><br>
+        > Z-score= <INPUT type="number" step="0.0001" ID="LH_ZSCORE"><br>
         </div>
         <input type="checkbox" ID="LH_OP" value="" onclick="HideLH()">Post operation of left hip<br><br>
         Right hip:<br>
         <div id="DIV_RH" style="display:block">
-        > BMD= <INPUT TYPE="number" ID="RH_BMD"><br>
-        > T-score= <INPUT TYPE="number" ID="RH_TSCORE"><br>
-        > Z-score= <INPUT TYPE="number" ID="RH_ZSCORE"><br>
+        > BMD= <INPUT type="number" step="0.0001" ID="RH_BMD"><br>
+        > T-score= <INPUT type="number" step="0.0001" ID="RH_TSCORE"><br>
+        > Z-score= <INPUT type="number" step="0.0001" ID="RH_ZSCORE"><br>
         </div>
         <input type="checkbox" ID="RH_OP" value="" onclick="HideRH()">Post operation of right hip<br><br><br><br>
      
@@ -305,9 +305,9 @@
         > Exam date=<br>
         <INPUT TYPE="date" ID="PREVIOUS_HIP_EXAM_DATE"><br>(blank = as the same as PREVIOUS LSP)<br><br>
         Left hip:<br>
-        > BMD= <INPUT TYPE="number" ID="PREVIOUS_HIP_EXAM_LH_BMD"><br><br>
+        > BMD= <INPUT type="number" step="0.0001" ID="PREVIOUS_HIP_EXAM_LH_BMD"><br><br>
         Right hip:<br>
-        > BMD= <INPUT TYPE="number" ID="PREVIOUS_HIP_EXAM_RH_BMD"><br><br>
+        > BMD= <INPUT type="number" step="0.0001" ID="PREVIOUS_HIP_EXAM_RH_BMD"><br><br>
 
         Report of hips<br> <input type="submit" class="CSS_BUTTON_REPORTING" value="Report output" onclick="DXA_REPORTING()"><br>
 
@@ -336,15 +336,15 @@
         <input type="checkbox" id="BODY_BMD_CHECKBOX" value=""><label for="BODY_BMD_CHECKBOX">Body BMD:</label><br><br>
         </div>
         
-        > BMD= <INPUT TYPE="number" id="BODY_BMD"><br>
-        > T-score= <INPUT TYPE="number" id="BODY_TSCORE"><br>
-        > Z-score= <INPUT TYPE="number" id="BODY_ZSCORE"><br><br><br>
+        > BMD= <INPUT type="number" step="0.0001" id="BODY_BMD"><br>
+        > T-score= <INPUT type="number" step="0.0001" id="BODY_TSCORE"><br>
+        > Z-score= <INPUT type="number" step="0.0001" id="BODY_ZSCORE"><br><br><br>
         
         <div class="CSS_CHECKBOX">
         <input type="checkbox" id="BODY_FAT_CHECKBOX" value=""><label for="BODY_FAT_CHECKBOX">Body fat measurement:</label><br><br>
         </div>
         
-        > Total fat= <INPUT TYPE="number" id="BODY_FAT">%<br><br><br>
+        > Total fat= <INPUT type="number" step="0.0001" id="BODY_FAT">%<br><br><br>
         
         <div class="CSS_CHECKBOX">
         <input type="checkbox" id="BODY_MUSCLE_CHECKBOX" value=""><label for="BODY_MUSCLE_CHECKBOX">Muscle mass measurement:</label><br><br>
@@ -356,11 +356,11 @@
         <input type="radio" id="BOX_SEX_FEMALE" name="BODY_SEX" value="female"><label for="BOX_SEX_FEMALE">female</label><br><br>
         </div>
         
-        > Lean mass of left arm  <br>= <INPUT TYPE="number" id="BODY_LALM_G">(g) <br>= <INPUT TYPE="number" id="BODY_LALM_KG">(Kg)<br><br>
-        > Lean mass of right arm <br>= <INPUT TYPE="number" id="BODY_RALM_G">(g) <br>= <INPUT TYPE="number" id="BODY_RALM_KG">(Kg)<br><br>
-        > Lean mass of left leg  <br>= <INPUT TYPE="number" id="BODY_LLLM_G">(g) <br>= <INPUT TYPE="number" id="BODY_LLLM_KG">(Kg)<br><br>
-        > Lean mass of right leg <br>= <INPUT TYPE="number" id="BODY_RLLM_G">(g) <br>= <INPUT TYPE="number" id="BODY_RLLM_KG">(Kg)<br><br>
-        > Height <br>= <INPUT TYPE="number" id="BODY_HEIGHT_CM">(cm) <br>= <INPUT TYPE="number" id="BODY_HEIGHT_M">(m) <br><br>
+        > Lean mass of left arm  <br>= <INPUT type="number" step="0.00001" id="BODY_LALM_G">(g) <br>= <INPUT type="number" step="0.00001" id="BODY_LALM_KG">(Kg)<br><br>
+        > Lean mass of right arm <br>= <INPUT type="number" step="0.00001" id="BODY_RALM_G">(g) <br>= <INPUT type="number" step="0.00001" id="BODY_RALM_KG">(Kg)<br><br>
+        > Lean mass of left leg  <br>= <INPUT type="number" step="0.00001" id="BODY_LLLM_G">(g) <br>= <INPUT type="number" step="0.00001" id="BODY_LLLM_KG">(Kg)<br><br>
+        > Lean mass of right leg <br>= <INPUT type="number" step="0.00001" id="BODY_RLLM_G">(g) <br>= <INPUT type="number" step="0.00001" id="BODY_RLLM_KG">(Kg)<br><br>
+        > Height <br>= <INPUT type="number" step="0.0001" id="BODY_HEIGHT_CM">(cm) <br>= <INPUT type="number" step="0.0001" id="BODY_HEIGHT_M">(m) <br><br>
         
         <input type="checkbox" id="BODY_RR_CHECKBOX" value="" checked="checked">Remark and Reference<br><br>
 
@@ -394,21 +394,21 @@
     </tr>
     <tr>
         <td><input type="radio" id="LSC_CHOICE_VGHTPE" name="LSC_CHOICE" value="VGHTPE" checked="checked"><label for="LSC_CHOICE_VGHTPE">VGHTPE</label></td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LSP_VGHTPE" value=0.031></td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LH_VGHTPE" value=0.033></td>         
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_RH_VGHTPE" value=0.038></td>               
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_LSP_VGHTPE" value=0.031></td>
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_LH_VGHTPE" value=0.033></td>         
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_RH_VGHTPE" value=0.038></td>               
     </tr>
         <tr>
         <td><input type="radio" id="LSC_CHOICE_TPECHZX" name="LSC_CHOICE" value="TPECHZX"><label for="LSC_CHOICE_TPECHZX">TPECH-ZX</label></td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LSP_TPECHZX"></td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LH_TPECHZX"></td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_RH_TPECHZX"></td>
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_LSP_TPECHZX"></td>
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_LH_TPECHZX"></td>
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_RH_TPECHZX"></td>
     </tr>
         <tr>
         <td><input type="radio" id="LSC_CHOICE_OTHERS" name="LSC_CHOICE" value="OTHERS"><label for="LSC_CHOICE_OTHERS"><INPUT TYPE="text" ID="LSC_OTHER" value="" placeholder="full hospital name"></label></td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LSP_OTHER"></td>
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_LH_OTHER"></td>        
-        <td align="center" valign="center"><INPUT TYPE="number" ID="LSC_RH_OTHER"></td>
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_LSP_OTHER"></td>
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_LH_OTHER"></td>        
+        <td align="center" valign="center"><INPUT type="number" step="0.0001" ID="LSC_RH_OTHER"></td>
     </tr>
 </table>
 </div>
