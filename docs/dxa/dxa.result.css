@@ -1,9 +1,10 @@
+/*
 html {
   box-sizing: border-box;
   width: 10000vw;
   animation: move 14s linear infinite;
 }
-
+*/
 *, *:before, *:after {
   margin: 0;
   padding: o;
@@ -14,7 +15,7 @@ html, body {
   height: 100%;
   overflow: hidden;
 }
-
+/*
 html {
   background-image: linear-gradient(to left, #bf4047, #bf4040, #bf4740, #bf4f40, #bf5740, #bf5e40, #bf6640, #bf6e40, #bf7540, #bf7d40, #bf8540, #bf8c40, #bf9440, #bf9c40, #bfa340, #bfab40, #bfb340, #bfba40, #bdbf40, #b5bf40, #adbf40, #a6bf40, #9ebf40, #96bf40, #8fbf40, #87bf40, #80bf40, #78bf40, #70bf40, #69bf40, #61bf40, #59bf40, #52bf40, #4abf40, #42bf40, #40bf45, #40bf4d, #40bf54, #40bf5c, #40bf63, #40bf6b, #40bf73, #40bf7a, #40bf82, #40bf8a, #40bf91, #40bf99, #40bfa1, #40bfa8, #40bfb0, #40bfb8, #40bfbf, #40b8bf, #40b0bf, #40a8bf, #40a1bf, #4099bf, #4091bf, #408abf, #4082bf, #407abf, #4073bf, #406bbf, #4063bf, #405cbf, #4054bf, #404dbf, #4045bf, #4240bf, #4a40bf, #5240bf, #5940bf, #6140bf, #6940bf, #7040bf, #7840bf, #8040bf, #8740bf, #8f40bf, #9640bf, #9e40bf, #a640bf, #ad40bf, #b540bf, #bd40bf, #bf40ba, #bf40b3, #bf40ab, #bf40a3, #bf409c, #bf4094, #bf408c, #bf4085, #bf407d, #bf4075, #bf406e, #bf4066, #bf405e, #bf4057, #bf404f, #bf4047);
 }
@@ -324,9 +325,11 @@ html {
     background-position: 10000vw;
   }
 }
-
+*/
 body {
     font-family: 'Inconsolata', monospace;
+    background-color: #000000;    
+    /* change gradient animation to single color background */
 }
 
 .result_text {
@@ -334,4 +337,5 @@ body {
     height:100vh;
     overflow-x:hidden;
     overflow-y:auto;
+    color: #00FF00;
 }

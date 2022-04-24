@@ -20,7 +20,8 @@
         </form> 
         <br><br>
 
-        <form id= "DXA_LSP">
+        <!-- onsubmit="return false" to avoid data reset after submission -->
+        <form id= "DXA_LSP" onsubmit="return false">
         Lumbar spine:<br><br>
         <div class="CSS_CHECKBOX">
         <input type="checkbox" id="FOV_L1" value="L1" checked="checked"><label for="FOV_L1">L1</label>        
@@ -284,7 +285,7 @@
         </form>
         <br><br>
         
-        <form id= "DXA_HIP">
+        <form id= "DXA_HIP" onsubmit="return false">
 
         Left hip:<br>
         <div id="DIV_LH" style="display:block">
@@ -331,7 +332,7 @@
         </form> 
         <br><br>
         
-        <form id= "DXA_BODY">
+        <form id= "DXA_BODY" onsubmit="return false">
         <div class="CSS_CHECKBOX">
         <input type="checkbox" id="BODY_BMD_CHECKBOX" value=""><label for="BODY_BMD_CHECKBOX">Body BMD:</label><br><br>
         </div>
